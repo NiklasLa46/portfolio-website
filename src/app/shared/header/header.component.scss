@@ -1,0 +1,43 @@
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+
+    >div{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-right: 80px;
+        padding-left: 80px;
+    }
+}
+
+.logo{
+  height: 100px;
+}
+
+.header-menu{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.header-language{
+  display: flex;
+  font-family: 'syne';
+  font-weight: 700;
+  font-size: 18px;
+  padding-right: 24px;
+  >p{
+    padding-left: 4px;
+    display: flex;
+    height: 28px;
+    width: 40px;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+
