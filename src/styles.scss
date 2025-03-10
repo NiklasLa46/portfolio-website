@@ -8,17 +8,22 @@ body{
 }
 
 @font-face {
-    font-family: 'syne'; // Replace with the font's name
+    font-family: 'syne'; 
     src: url('assets/fonts/syne.woff2') format('woff2');
   }
   
   @font-face {
-    font-family: 'syne800'; // Replace with the font's name
+    font-family: 'syne800'; 
     src: url('assets/fonts/syne-800.woff2') format('woff2');
   }
 
   @font-face {
-    font-family: 'overpass'; // Replace with the second font's name
+    font-family: 'overpass'; 
     src: url('assets/fonts/overpass.woff2') format('woff2');
+  }
+  
+  @font-face {
+    font-family: 'overpass700'; 
+    src: url('assets/fonts/overpass-700.woff2') format('woff2');
   }
   

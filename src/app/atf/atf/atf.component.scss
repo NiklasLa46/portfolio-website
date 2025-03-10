@@ -82,3 +82,7 @@
     }
   }
 }
+
+.animated-arrow {
+  transition: all 0.25s ease-in-out; /* Optional smooth transition for the image change */
+}
