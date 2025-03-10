@@ -4,11 +4,12 @@ import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from "./shared/header/header.component";
 import { AtfComponent } from './atf/atf/atf.component';
 import { AboutMeComponent } from "./about-me/about-me/about-me.component";
+import { ArrowSectionComponent } from './arrow-section/arrow-section.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, HeaderComponent, AtfComponent, AboutMeComponent],
+  imports: [CommonModule, RouterOutlet, HeaderComponent, AtfComponent, AboutMeComponent, ArrowSectionComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

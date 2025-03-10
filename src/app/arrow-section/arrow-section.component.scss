@@ -1,0 +1,13 @@
+.arrow-section{
+    width: 100%;
+    max-width: 1259px;
+    margin: 0 auto;
+    display: flex;
+    padding-top: 80px;
+    justify-content: flex-end;
+    height: 300px;
+  }
+  
+  img {
+    transition: opacity 0.3s ease-in-out; 
+  }

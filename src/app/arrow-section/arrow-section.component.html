@@ -1,0 +1,10 @@
+<div class="arrow-section" (mouseenter)="startAnimation()">
+    <div>
+      <img 
+        [src]="currentImage" 
+        alt="Arrow" 
+        [ngStyle]="isLastImage ? { 'padding-top': '65px', 'padding-right': '65px' } : {}" 
+      />
+    </div>
+  </div>
+  
