@@ -28,7 +28,6 @@ h1 {
 
 .skills-main {
   width: 100%;
-  height: 100vh;
   max-width: 1259px;
   margin: 0 auto;
   display: flex;
@@ -106,13 +105,13 @@ p {
   }
 }
 
-.single-skill:hover{
+.single-skill:hover {
   color: $highlight_color;
 }
 
 .single-skill {
   position: relative;
-  overflow: hidden; // Ensures the icon is hidden when outside the container
+  overflow: hidden; 
 }
 
 .skill-icon {
@@ -120,43 +119,55 @@ p {
   transition: transform 0.25s ease;
 }
 
+.skill-learn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.learn-icon {
+  position: relative;
+  transition: transform 0.25s ease;
+}
+
 .single-skill:hover .skill-icon ,
-.skill-learn:hover .learn-icon {
+.learn-icon:hover {
   animation: circular-back-and-forth 0.25s ease-in-out;
 }
 
 @keyframes circular-back-and-forth {
   0% {
     transform: translate(0, 0) scale(1);
-    opacity: 1;
   }
   25% {
-    transform: translate(50%) scale(0.8);
+    transform: translate(50%, 0) scale(0.8);
   }
   50% {
     transform: translate(0) scale(0.7);
   }
   75% {
-    transform: translate(-50%) scale(0.8);
+    transform: translate(-50%, 0) scale(0.8);
   }
   100% {
     transform: translate(0, 0) scale(1);
-    opacity: 1;
   }
 }
 
-.single-skill:hover {
-  color: $highlight_color;
+.arrow-div{
+  width: 100%;
+  max-width: 1259px;
+  display: flex;
+  justify-content: flex-end;
+  transform: scaleX(-1);
 }
 
-.single-skill,
-.skill-learn {
-  position: relative;
-  overflow: hidden; 
+.arrow-sec{
+  width: 100%;
 }
 
-.skill-icon,
-.learn-icon {
-  position: relative;
-  transition: transform 0.25s ease;
+.skills-arrow-div{
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
