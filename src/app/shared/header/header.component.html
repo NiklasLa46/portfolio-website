@@ -1,17 +1,55 @@
-
 <header>
+  <div>
     <div>
-        <div>
-            <img class="logo" src="./../../../assets/logo2.png" alt="">
-        </div>
-        <div class="header-menu">
-            <div class="header-language">
-                <p>EN</p>
-                <p>DE</p>
-            </div>
-            <div> <img src="./../../../assets/burger-standard.png" alt="">
-            </div>
-           
-        </div>
+      <img class="logo" src="./../../../assets/logo2.png" alt="" />
     </div>
+    <div class="header-menu">
+      <div class="header-language">
+        <p>EN</p>
+        <p>DE</p>
+      </div>
+      <div>
+        <img
+          class="header-button"
+          src="./../../../assets/header-button/header0.png"
+          alt=""
+          (click)="toggleHeader()"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div
+    *ngIf="isHeaderExtended"
+    class="header-extended"
+    [ngClass]="{ active: isHeaderExtended }"
+  >
+    <div class="extended-body">
+      <div class="extended-links">
+        <a  href="/target-url" 
+        (click)="onLinkClick($event)" 
+        [routerLink]="['/target-url']"
+        [routerLinkActive]="'active-link'">About me</a>
+        <a  href="/target-url" 
+        (click)="onLinkClick($event)" 
+        [routerLink]="['/target-url']"
+        [routerLinkActive]="'active-link'">My skills</a>
+        <a  href="/target-url" 
+        (click)="onLinkClick($event)" 
+        [routerLink]="['/target-url']"
+        [routerLinkActive]="'active-link'">Portfolio</a>
+      </div>
+      <div>
+        <div>
+          <h1>Title</h1>
+          <p>Description</p>
+        </div>
+        <div>
+          <img src="" alt="" />
+          <img src="" alt="" />
+          <img src="" alt="" />
+        </div>
+      </div>
+    </div>
+  </div>
 </header>

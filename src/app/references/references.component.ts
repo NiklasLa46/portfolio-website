@@ -6,7 +6,7 @@ import { ArrowSectionComponent } from "../arrow-section/arrow-section.component"
 @Component({
   selector: 'app-references',
   standalone: true,
-  imports: [SingleReferenceComponent, CommonModule, ArrowSectionComponent],
+  imports: [SingleReferenceComponent, CommonModule],
   templateUrl: './references.component.html',
   styleUrls: ['./references.component.scss', '../../styles.scss'],
 })
