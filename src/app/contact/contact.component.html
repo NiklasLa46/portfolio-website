@@ -4,23 +4,59 @@
 <div class="gradient-div">
 
 </div>
-<div class="contact-main">
-  <div class="h1-div">
-    <h1>Say Hi!</h1>
-  </div>
-  <div>
+<form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)" class="contact-form">
+    <div class="h1-div">
+      <h1>Say Hi!</h1>
+    </div>
     <div>
-      <h2>Want to discuss a new project?</h2>
-      <h3>Say hello! let's discuss your ideas and make it happen</h3>
+      <div>
+        <h2>Want to discuss a new project?</h2>
+        <h3>Say hello! let's discuss your ideas and make it happen</h3>
+      </div>
+      <div class="input-div">
+        <input 
+          placeholder="Your name" 
+          type="text" 
+          name="name" 
+          ngModel
+          required />
+          <input 
+          placeholder="Your email" 
+          type="email" 
+          name="email" 
+          ngModel
+          #email="ngModel" 
+          required 
+          email />
+        <div *ngIf="email.invalid && (email.dirty || email.touched)" class="error-message">
+          <p *ngIf="email.errors?.['required']">Email is required.</p>
+          <p *ngIf="email.errors?.['email']">Please enter a valid email address.</p>
+        </div>
+        <textarea 
+          placeholder="Your message" 
+          name="message" 
+          ngModel
+          required></textarea>
+  
+        <div class="check-div">
+          <input 
+            class="checkbox" 
+            type="checkbox" 
+            name="acceptTerms"
+            ngModel
+            required />
+          <p>I've read the <a href="">privacy policy</a> and agree to the processing of my data outlined.</p>
+        </div>
+      </div>
+      <div class="bottom-div">
+        <div class="button-container">
+            <button type="submit" [disabled]="!contactForm.valid">Send message</button>
+        </div>
+        <img (click)="scrollToTop()" class="scroll-up-img" src="./../../assets/scroll-up-arrow/scroll-up-arrow-def.png" alt="Scroll Up Arrow">
     </div>
-    <div class="input-div">
-      <input placeholder="Your name" type="text" />
-      <input placeholder="Your email" type="text" />
-      <textarea placeholder="Your message" name="" id=""></textarea>
-      <div class="check-div"><input class="checkbox" type="checkbox"><p>I've read the <a href="">privacy policy</a> and agree to the processing of my data outlined.</p></div>
-      
-      <button>Send message</button>
+    
     </div>
-  </div>
-  <div><img src="" alt=""></div>
-</div>
+   
+  </form>
+
+  

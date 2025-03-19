@@ -1,10 +1,20 @@
 @import "./../../styles.scss";
-.contact-main {
+.contact-form {
   background-color: black;
   width: 100%;
   color: #fffcf3;
-  height: 1200px;
 }
+
+.error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+    >p{
+        padding: 0;
+        margin: 0;
+        padding-bottom: 12px;
+    }
+  }  
 
 h1 {
   font-family: "syne800";
@@ -68,6 +78,28 @@ input[type="text"] {
   }
 }
 
+input[type="email"] {
+    background-color: black;
+    color: #fffcf3;
+    font-family: "overpass";
+    font-size: 16px;
+    font-weight: 400;
+    border-bottom: 2px #fffcf3 solid !important;
+    width: 100%;
+    border: none;
+    margin-bottom: 20px;
+    padding-top: 15px;
+    padding-right: 25px;
+    padding-bottom: 15px;
+    padding-left: 25px;
+    gap: 10px;
+    border-bottom-width: 2px;
+    outline: none;
+    &::placeholder {
+      color: $backround_color;
+    }
+  }
+
 textarea {
   background-color: black;
   color: #fffcf3;
@@ -90,22 +122,43 @@ textarea {
 }
 
 button {
-  background-color: black;
-  color: #fffcf3;
-  cursor: pointer;
-  font-family: "overpass";
-  font-size: 23px;
-  width: 213px;
-  height: 68px;
-  outline: 4px solid $backround_color;
-  border: none;
-  transition: all 0.1s ease;
-  &:hover {
-    width: 260px;
-    height: 70px;
-    font-weight: bold;
-  }
+    background-color: black;
+    color: #fffcf3;
+    cursor: pointer;
+    font-family: "overpass";
+    font-size: 23px;
+    width: 213px;
+    height: 68px;
+    outline: 4px solid #fffcf3;
+    border: none;
+    transition: all 0.1s ease;
 }
+
+button:disabled {
+    background-color: black; /* Keep the same background */
+    color: gray; /* Change the text color to gray */
+    outline: 4px solid gray; /* Change the outline color to gray */
+    border: none; /* Maintain the same border */
+    cursor: not-allowed; /* Change the cursor to indicate it's disabled */
+    pointer-events: none; /* Disable pointer events (no clicks) */
+    transition: none; /* Remove the hover transition */
+}
+
+button:hover {
+    &:hover {
+        width: 260px;
+        height: 70px;
+        font-weight: bold;
+    }
+}
+
+button:disabled:hover {
+    background-color: black; /* No change to background on hover */
+    color: gray; /* Keep text color gray on hover */
+    outline: 4px solid gray; /* Keep outline gray on hover */
+    cursor: not-allowed; /* Keep the cursor as not-allowed */
+}
+
 
 .input-div {
   width: 617px;
@@ -224,4 +277,32 @@ div {
 
 .arrow-sec {
   width: 100%;
+}
+
+.bottom-div {
+    max-width: 1259px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; 
+    align-items: center;
+    width: 100%;
+}
+
+.button-container {
+    height: 75px;
+    display: flex;
+    justify-content: center; 
+    flex-grow: 1;
+}
+
+.scroll-up-img {
+    cursor: pointer;
+    width: 50px; 
+    height: auto; 
+    transition: transform 0.3s ease, opacity 0.3s ease, filter 0.3s ease;
+    margin-left: auto; 
+}
+
+.scroll-up-img:hover {
+    content: url('./../../assets/scroll-up-arrow/scroll-up-arrow-hov.png'); 
 }
