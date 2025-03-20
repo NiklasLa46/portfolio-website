@@ -4,7 +4,7 @@ header {
   left: 0;
   background-color: #fffcf3;
   width: 100%;
-  z-index: 1000;
+  z-index: 1000; /* Ensure it is always on top */
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -15,12 +15,15 @@ header > div {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.header-button {
   padding-right: 80px;
-  padding-left: 80px;
 }
 
 .logo {
   height: 100px;
+  padding-left: 80px;
 }
 
 .header-menu {
@@ -35,47 +38,55 @@ header > div {
   font-weight: 700;
   font-size: 18px;
   padding-right: 24px;
-  > p {
-    padding-left: 4px;
-    display: flex;
-    height: 28px;
-    width: 40px;
-    align-items: center;
-    justify-content: center;
-  }
+}
+
+.header-language > p {
+  padding-left: 4px;
+  display: flex;
+  height: 28px;
+  width: 40px;
+  align-items: center;
+  justify-content: center;
 }
 
 .header-extended {
   position: fixed;
-  margin-top: 70px;
+  top: 100px; /* Start below the header */
   left: 0;
   width: 100%;
   background-color: #fffcf3;
-  color: white;
-  z-index: 999;
+  z-index: 999; /* Below the default header */
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: calc(100vh - 100px); /* Take up the rest of the viewport */
   overflow: hidden;
-  transform: translateY(-100%);
-  opacity: 0;
-  transition: transform 0.5s ease, opacity 0.5s ease;
+  transform: translateY(100%); /* Start fully out of view */
+  opacity: 0; /* Start invisible */
+  transition: transform 5s ease, opacity 5s ease; /* Smooth animation */
+}
+
+.header-extended.active {
+  transform: translateY(0); /* Slide into view */
+  opacity: 1; /* Become fully visible */
 }
 
 .extended-body {
   width: 100%;
-  max-width: 1259px;
   height: 100%;
   margin: 0 auto;
   display: flex;
   justify-content: center;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.extended-links{
+.extended-links {
+  padding-top: 50px;
   width: 100%;
+  max-width: 1259px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -90,57 +101,108 @@ header > div {
   font-family: Syne;
   font-weight: 700;
   font-size: 96px;
-  padding-top: 49px;
-  padding-bottom: 49px;
-  padding-left: 38.5px;
-  padding-right: 38.5px;
+  padding: 49px 38.5px;
   cursor: pointer;
   align-items: center;
   justify-content: center;
   position: relative;
-  outline: none; /* No default outline */
-  transition: all 0.3s ease; /* Smooth transition for the outline and corner */
+  outline: none;
+  transition: all 0.3s ease;
+  margin-bottom: 35px;
 }
 
 .extended-links > a::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 20px; /* Small visible line at the bottom-left corner */
-  height: 20px; /* Small visible line at the bottom-left corner */
-  border-left: 4px solid black; /* Left border */
-  border-bottom: 4px solid black; /* Bottom border */
-  transition: width 0.3s ease, height 0.3s ease, left 0.3s ease, top 0.3s ease; /* Smooth transitions */
+  width: 20px;
+  height: 20px;
+  border-left: 4px solid black;
+  border-bottom: 4px solid black;
+  transition: width 0.3s ease, height 0.3s ease, left 0.3s ease, top 0.3s ease;
 }
 
 .extended-links > a:hover::after {
-  width: 40%; /* Stretch the line to 40% of the width */
-  left: 60%; /* Position the line towards the bottom-right corner */
-  height: 4px; /* Make the line thinner */
-  border-left: none; /* Remove the left border on hover */
-  border-bottom: 4px solid black; /* Keep the bottom border */
+  width: 40%;
+  left: 60%;
+  height: 4px;
+  border-left: none;
+  border-bottom: 4px solid black;
 }
 
-/* When clicked (active), the outline grows around the entire <a> */
 .extended-links > a:active::after {
-  width: 100%; /* Expand the width to cover the whole element */
-  height: 100%; /* Expand the height to cover the whole element */
-  left: 0; /* Align to the left */
-  top: 0; /* Align to the top */
-  border-left: 4px solid black; /* Add left border */
-  border-right: 4px solid black; /* Add right border */
-  border-top: 4px solid black; /* Add top border */
-  border-bottom: 4px solid black; /* Keep the bottom border */
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  border: 4px solid black;
+}
+
+h1 {
+  font-family: "syne800";
+  font-weight: 800;
+  font-size: 78px;
+  color: #fffcf3;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  &:hover {
+    color: #00bc8f;
+  }
+}
+
+p {
+  color: #fffcf3;
+  font-family: "Overpass";
+  font-weight: 300;
+  font-size: 23px;
+}
+
+.header-bottom {
+  background-color: black;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.bottom-content {
+  padding-top: 40px;
+  height: 200px;
+  display: flex;
+  width: 100%;
+  padding-bottom: 40px;
+  padding-left: 80px;
+  padding-right: 80px;
+  justify-content: space-between;
+}
+
+.header-black {
+  width: 100%;
+}
+
+.gradient-div {
+  background-color: black;
+  clip-path: polygon(0 30%, 100% 100%, 0 100%);
+  height: 310px;
+  width: 100%;
 }
 
 
-.header-extended.active {
-  transform: translateY(0); /* Move it into view */
-  opacity: 1; /* Make it visible */
-}
-
-
-.header-button {
+.icon {
   cursor: pointer;
+  display: inline-block;
+  transition: transform 0.3s ease; 
+  height: 40px;
 }
+
+.icon:hover {
+  transform: translateY(-8px); 
+}
+.icons{
+  width: 204px;
+  display: flex;
+  justify-content: space-between;
+}
+

@@ -21,7 +21,7 @@ export class ReferencesComponent {
     {
       name: 'A. Bucha',
       title: 'Team Partner',
-      quote: 'Niklas showed outstanding skills in solving complex challenges. His enthusiasm and professionalism inspired the whole team.',
+      quote: 'Ich habe vier Wochen lang mit Niklas Lampe an einem Projekt zusammengearbeitet. Wir waren stets kommunikativ und beide sehr engagiert. Entscheidungen haben wir immer gemeinsam und konstruktiv getroffen. Die Zusammenarbeit mit ihm hat mir viel Freude bereitet und ich hoffe, dass wir auch in Zukunft wieder zusammenarbeiten können.',
       image: './../../../assets/format_quote.png'
     }
   ];
