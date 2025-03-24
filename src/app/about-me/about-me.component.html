@@ -1,30 +1,24 @@
 <div id="about-me" class="about-me-main">
   <div>
-    <h1>About me</h1>
+    <h1>{{ content.header }}</h1>
   </div>
   <div class="about-me-content">
     <div>
       <div class="about-me-paragraph">
-        <p>
-          I’m an aspiring Front-End Developer with a passion for creating
-          responsive, user-friendly, and visually appealing websites. I enjoy
-          collaborating with teams to turn ideas into interactive, functional
-          products using modern tools and technologies. If you think I could be
-          of help for your projects, contact me!
-        </p>
+        <p>{{ content.paragraph }}</p>
       </div>
       <div class="about-me-sub-content">
         <div class="about-me-based">
           <img src="./../../../assets/about-me-house.png" alt="" />
-          <p>Based in Berlin</p>
+          <p>{{ content.basedIn }}</p>
         </div>
         <div class="about-me-remote">
           <img src="./../../../assets/about-me-laptop.png" alt="" />
-          <p>Open to work Remote</p>
+          <p>{{ content.remote }}</p>
         </div>
       </div>
       <div class="about-me-btn-div">
-        <button>Let's Talk</button>
+        <button (click)="scrollToContact()">{{ content.button }}</button>
       </div>
     </div>
     <div class="image-container">
@@ -35,4 +29,3 @@
     <app-arrow-section id="skills"></app-arrow-section>
   </div>
 </div>
-

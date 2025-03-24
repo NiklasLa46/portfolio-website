@@ -1,12 +1,10 @@
 <div>
-    <h1>References</h1>
-    <h2>
-        I thrive both independently and as part of a team. Here’s what my colleagues have to say about working with me.
-    </h2>
+    <h1>{{ h1Text }}</h1>
+    <h2>{{ h2Text }}</h2>
     <div class="references-div">
         <app-single-reference 
             *ngFor="let ref of references" 
-            [reference]="ref">
+            [reference]="getTranslatedReference(ref.name)">
         </app-single-reference>
     </div>
 </div>

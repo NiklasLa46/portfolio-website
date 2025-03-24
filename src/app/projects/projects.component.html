@@ -1,19 +1,16 @@
 <div>
-    <h1>Portfolio</h1>
-    <h2>Explore a selection of my work here - Interact with <br>
-      projects to see my skills in action
-    </h2>
-    <div class="project-body">
-      <app-single-project 
-        *ngFor="let project of projects; let i = index" 
-        [projectNumber]="project.number" 
-        [projectTitle]="project.title" 
-        [projectTech]="project.tech" 
-        [projectDescription]="project.description" 
-        [projectImage]="project.image" 
-        [projectArrow]="project.arrow" 
-        [projectIndex]="i">
-      </app-single-project>
-    </div>
+  <h1>Portfolio</h1>
+  <h2 [innerHTML]="h2Text"></h2> 
+  <div class="project-body">
+    <app-single-project 
+      *ngFor="let project of projects; let i = index" 
+      [projectNumber]="project.number" 
+      [projectTitle]="getTranslatedTitle(project)"  
+      [projectTech]="project.tech" 
+      [projectImage]="project.image" 
+      [projectDescription]="getTranslatedDescription(project)"  
+      [projectArrow]="project.arrow" 
+      [projectIndex]="i">
+    </app-single-project>
   </div>
-  
+</div>

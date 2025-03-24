@@ -4,7 +4,7 @@ header {
   left: 0;
   background-color: #fffcf3;
   width: 100%;
-  z-index: 1000; /* Ensure it is always on top */
+  z-index: 1000; 
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -24,6 +24,9 @@ header > div {
 .logo {
   height: 100px;
   padding-left: 80px;
+  &:hover{
+    cursor: pointer;
+  }
 }
 
 .header-menu {
@@ -34,42 +37,64 @@ header > div {
 
 .header-language {
   display: flex;
-  font-family: "syne";
-  font-weight: 700;
+  font-family: "syne700";
   font-size: 18px;
   padding-right: 24px;
 }
 
 .header-language > p {
-  padding-left: 4px;
   display: flex;
   height: 28px;
   width: 40px;
   align-items: center;
+  color: black;
   justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  font-weight: bold;
+  margin-right: 12px;
 }
 
+.active-lang {
+  outline: 3px solid #00bc8f;  
+}
+
+.header-language > p:not(.active-lang):hover::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0; 
+  width: 55%; 
+  height: 2px;
+  background-color: black;
+}
 .header-extended {
   position: fixed;
-  top: 100px; /* Start below the header */
+  top: 100px; 
   left: 0;
   width: 100%;
   background-color: #fffcf3;
-  z-index: 999; /* Below the default header */
+  z-index: 999; 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: calc(100vh - 100px); /* Take up the rest of the viewport */
+  height: calc(100vh - 100px); 
   overflow: hidden;
-  transform: translateY(100%); /* Start fully out of view */
-  opacity: 0; /* Start invisible */
-  transition: transform 5s ease, opacity 5s ease; /* Smooth animation */
+  transform: translateY(100%); 
+  opacity: 0; 
+  transition: transform 0.5s ease, opacity 0.5s ease; 
 }
 
 .header-extended.active {
-  transform: translateY(0); /* Slide into view */
-  opacity: 1; /* Become fully visible */
+  transform: translateY(0); 
+  opacity: 1; 
+}
+
+.header-extended.closed {
+  transform: translateY(100%); 
+  opacity: 0; 
 }
 
 .extended-body {
@@ -149,6 +174,7 @@ h1 {
   text-align: center;
   &:hover {
     color: #00bc8f;
+    cursor: pointer;
   }
 }
 
@@ -157,6 +183,9 @@ p {
   font-family: "Overpass";
   font-weight: 300;
   font-size: 23px;
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .header-bottom {
@@ -172,7 +201,7 @@ p {
   height: 200px;
   display: flex;
   width: 100%;
-  padding-bottom: 40px;
+  padding-bottom: 80px;
   padding-left: 80px;
   padding-right: 80px;
   justify-content: space-between;
@@ -185,7 +214,7 @@ p {
 .gradient-div {
   background-color: black;
   clip-path: polygon(0 30%, 100% 100%, 0 100%);
-  height: 310px;
+  height: 210px;
   width: 100%;
 }
 

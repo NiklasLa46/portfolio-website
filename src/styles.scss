@@ -7,6 +7,55 @@ body{
     margin: 0;
 }
 
+.skill-learn a {
+  position: relative;
+  text-decoration: none;
+  color: $highlight_color; 
+  
+  &:hover {
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: $highlight_color;
+    transition: width 0.3s ease, transform 0.3s ease;
+    transform-origin: left;
+  }
+
+  &:hover::after {
+    width: 100%;
+  }
+
+  &:hover {
+    &::after {
+      width: 45%;
+      transform: translateX(120%);
+    }
+  }
+}
+
+.check-div a{
+  
+    text-decoration: none;
+    color: $highlight_color;
+    font-family: Overpass;
+    font-weight: 400;
+    font-size: 14px;
+    transition: transform 0.3s ease;
+    &:hover {
+      transform: scale(1.2); 
+      font-weight: 700;
+      color: $highlight_color;
+    }
+}
+
 @font-face {
     font-family: 'syne'; 
     src: url('assets/fonts/syne.woff2') format('woff2');

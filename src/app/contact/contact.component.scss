@@ -57,6 +57,7 @@ h3 {
 }
 
 input[type="text"] {
+  cursor: pointer;
   background-color: black;
   color: #fffcf3;
   font-family: "overpass";
@@ -76,9 +77,13 @@ input[type="text"] {
   &::placeholder {
     color: $backround_color;
   }
+  &:hover{
+    outline: 2px white solid;
+  }
 }
 
 input[type="email"] {
+  cursor: pointer;
     background-color: black;
     color: #fffcf3;
     font-family: "overpass";
@@ -97,6 +102,9 @@ input[type="email"] {
     outline: none;
     &::placeholder {
       color: $backround_color;
+    }
+    &:hover{
+      outline: 2px white solid;
     }
   }
 
@@ -119,6 +127,9 @@ textarea {
   &::placeholder {
     color: $backround_color;
   }
+  &:hover{
+    outline: 2px white solid;
+  }
 }
 
 button {
@@ -135,13 +146,13 @@ button {
 }
 
 button:disabled {
-    background-color: black; /* Keep the same background */
-    color: gray; /* Change the text color to gray */
-    outline: 4px solid gray; /* Change the outline color to gray */
-    border: none; /* Maintain the same border */
-    cursor: not-allowed; /* Change the cursor to indicate it's disabled */
-    pointer-events: none; /* Disable pointer events (no clicks) */
-    transition: none; /* Remove the hover transition */
+    background-color: black; 
+    color: gray; 
+    outline: 4px solid gray; 
+    border: none; 
+    cursor: not-allowed; 
+    pointer-events: none; 
+    transition: none;
 }
 
 button:hover {
@@ -153,10 +164,10 @@ button:hover {
 }
 
 button:disabled:hover {
-    background-color: black; /* No change to background on hover */
-    color: gray; /* Keep text color gray on hover */
-    outline: 4px solid gray; /* Keep outline gray on hover */
-    cursor: not-allowed; /* Keep the cursor as not-allowed */
+    background-color: black; 
+    color: gray; 
+    outline: 4px solid gray; 
+    cursor: not-allowed;
 }
 
 

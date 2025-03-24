@@ -68,7 +68,9 @@
       </div>
       <div class="skill-learn">
         <img class="learn-icon" src="./../../assets/skills/learning.png" alt="" />
-        <p>Don't see the skill you need? <a href="">Contact me</a> I'm always ready to learn!</p>
+        <p>
+          {{ learnMoreText }} <a (click)="scrollToContact()">{{ contactMeText }}</a>. {{ alwaysReadyText }}
+        </p>
       </div>
     </div>
   </div>

@@ -1,17 +1,27 @@
 <header>
   <div>
     <div>
-      <img class="logo" src="./../../../assets/logo2.png" alt="" />
+      <img (click)="scrollToTop()" class="logo" src="./../../../assets/logo2.png" alt="" />
     </div>
     <div class="header-menu">
       <div class="header-language">
-        <p>EN</p>
-        <p>DE</p>
+        <p
+          [ngClass]="{ 'active-lang': currentLanguage === 'en' }"
+          (click)="toggleLanguage('en')"
+        >
+          EN
+        </p>
+        <p
+          [ngClass]="{ 'active-lang': currentLanguage === 'de' }"
+          (click)="toggleLanguage('de')"
+        >
+          DE
+        </p>
       </div>
       <div>
         <img
           class="header-button"
-          src="./../../../assets/header-button/header0.png"
+          [src]="currentHeaderImage"
           alt=""
           (click)="toggleHeader()"
         />
@@ -19,24 +29,39 @@
     </div>
   </div>
 
-  <div
-    *ngIf="isHeaderExtended"
-    class="header-extended"
-    [ngClass]="{ active: isHeaderExtended }"
-  >
+  <div class="header-extended" [ngClass]="{ active: isHeaderExtended }">
     <div class="extended-body">
       <div class="extended-links">
-        <a href="#about-me">About me</a>
-        <a href="#skills">My skills</a>
-        <a href="#projects">Portfolio</a>
+        <div class="extended-links">
+          <a
+            (click)="closeHeader($event)"
+            [ngClass]="{ 'active-link': activeLink === 'about-me' }"
+            data-link="about-me"
+            >{{ translation.aboutMe }}</a
+          >
+          <a
+            (click)="closeHeader($event)"
+            [ngClass]="{ 'active-link': activeLink === 'skills' }"
+            data-link="skills"
+            >{{ translation.mySkills }}</a
+          >
+          <a
+            (click)="closeHeader($event)"
+            [ngClass]="{ 'active-link': activeLink === 'projects' }"
+            data-link="projects"
+            >{{ translation.portfolio }}</a
+          >
+        </div>
       </div>
       <div class="header-black">
         <div class="gradient-div"></div>
         <div class="header-bottom">
           <div class="bottom-content">
             <div>
-              <h1>Say Hi!</h1>
-              <p>niklas.lampe00&#64;gmail.com</p>
+              <h1          (click)="closeHeader($event)"
+              [ngClass]="{ 'active-link': activeLink === 'contact' }"
+              data-link="contact">{{ translation.sayHi }}</h1>
+              <p>{{ translation.email }}</p>
             </div>
             <div class="icons">
               <img class="icon" src="./../../../assets/linkedin.png" alt="" />
