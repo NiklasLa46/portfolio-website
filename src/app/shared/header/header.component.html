@@ -65,8 +65,10 @@
             </div>
             <div class="icons">
               <img class="icon" src="./../../../assets/linkedin.png" alt="" />
-              <img class="icon" src="./../../../assets/mail.png" alt="" />
-              <img class="icon" src="./../../../assets/github.png" alt="" />
+              <img (click)="closeHeader($event); navigateToSectionInMainContent('contact')" class="icon" src="./../../../assets/mail.png" alt="" />
+              <a href="https://github.com/NiklasLa46" target="_blank">
+                <img class="icon" src="./../../../assets/github.png" alt="GitHub" />
+              </a>
             </div>
           </div>
         </div>

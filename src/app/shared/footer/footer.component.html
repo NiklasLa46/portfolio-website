@@ -6,11 +6,13 @@
       </div>
       <div class="right-logos">
         <div class="icons">
-          <img class="icon" src="./../../../assets/github.png" alt="">
+          <a href="https://github.com/NiklasLa46" target="_blank">
+            <img class="icon" src="./../../../assets/github.png" alt="GitHub" />
+          </a>          
           <img class="icon" src="./../../../assets/linkedin.png" alt="">
           <img class="icon" src="./../../../assets/mail.png" alt="">
         </div>
-        <a [href]="getImprintUrl()" target="_blank" rel="noopener noreferrer">{{ imprintText }}</a>
+        <a class="imprint" [href]="getImprintUrl()" target="_blank" rel="noopener noreferrer">{{ imprintText }}</a>
       </div>
     </div>
   </footer>

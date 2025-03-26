@@ -17,6 +17,6 @@ export class SingleProjectComponent {
   @Input() projectImage: string = '';
   @Input() projectArrow: string = '';
   @Input() projectIndex!: number; 
-
-
+  @Input() githubLink: string = '';
+  @Input() liveTestLink: string = '';
 }

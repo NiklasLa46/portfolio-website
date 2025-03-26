@@ -1,19 +1,22 @@
 <div class="project-main" [ngClass]="{'row-reverse': (projectIndex + 1) % 2 === 0}">
-    <div class="num-div" [ngStyle]="{'left': (projectIndex + 1) % 2 === 0 ? '0px' : '', 'right': (projectIndex + 1) % 2 !== 0 ? '10px' : ''}">
-      {{ projectNumber }}
-    </div>
-    <div class="image-container" [ngClass]="{'reversed': (projectIndex + 1) % 2 === 0}">
-      <img class="project-img" [src]="projectImage" alt="">
-      <img class="project-arrow"  [ngClass]="{'reversed': (projectIndex + 1) % 2 === 0}" [src]="projectArrow" alt="">
-    </div>
-    <div class="project-info" [ngClass]="{'slide-in': (projectIndex + 1) % 2 === 0, 'slide-in-reverse': (projectIndex + 1) % 2 !== 0}">
-      <h2>{{ projectTitle }}</h2>
-      <h3>{{ projectTech }}</h3>
-      <p>{{ projectDescription }}</p>
-      <div class="btn-div">
+  <div class="num-div" [ngStyle]="{'left': (projectIndex + 1) % 2 === 0 ? '0px' : '', 'right': (projectIndex + 1) % 2 !== 0 ? '10px' : ''}">
+    {{ projectNumber }}
+  </div>
+  <div class="image-container" [ngClass]="{'reversed': (projectIndex + 1) % 2 === 0}">
+    <img class="project-img" [src]="projectImage" alt="">
+    <img class="project-arrow" [ngClass]="{'reversed': (projectIndex + 1) % 2 === 0}" [src]="projectArrow" alt="">
+  </div>
+  <div class="project-info" [ngClass]="{'slide-in': (projectIndex + 1) % 2 === 0, 'slide-in-reverse': (projectIndex + 1) % 2 !== 0}">
+    <h2>{{ projectTitle }}</h2>
+    <h3>{{ projectTech }}</h3>
+    <p>{{ projectDescription }}</p>
+    <div class="btn-div">
+      <a [href]="githubLink" target="_blank">
         <button>Github</button>
+      </a>
+      <a [href]="liveTestLink" target="_blank">
         <button>Live Test</button>
-      </div>
+      </a>
     </div>
   </div>
-  
+</div>

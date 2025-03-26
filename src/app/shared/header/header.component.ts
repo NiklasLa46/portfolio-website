@@ -128,7 +128,7 @@ export class HeaderComponent {
 
   navigateToSectionInMainContent(section: string): void {
     this.router.navigate(['/'], { fragment: section });
-    this.navigateToSection.emit(section); // This will emit the section ID to the parent if needed
+    this.navigateToSection.emit(section); 
   }
   
   scrollToTop(): void {
