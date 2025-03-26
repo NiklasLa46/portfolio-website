@@ -19,6 +19,9 @@ header > div {
 
 .header-button {
   padding-right: 80px;
+  &:hover{
+    cursor: pointer;
+  }
 }
 
 .logo {
@@ -66,7 +69,7 @@ header > div {
   bottom: 0;
   right: 0; 
   width: 55%; 
-  height: 2px;
+  height: 3px;
   background-color: black;
 }
 .header-extended {

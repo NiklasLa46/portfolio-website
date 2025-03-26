@@ -199,20 +199,22 @@
   .btn-div {
     margin-top: 35px;
     height: 80px;
-  
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
     > button {
       background-color: $backround_color;
       cursor: pointer;
       font-family: "overpass";
       font-size: 23px;
-      width: 213px;
+      width: 205px;
       height: 68px;
       outline: 4px solid black;
       border: none;
       transition: all 0.1s ease;
   
       &:hover {
-        width: 260px;
+        width: 230px;
         height: 70px;
         font-weight: bold;
       }

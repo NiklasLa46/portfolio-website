@@ -1,7 +1,7 @@
 <header>
   <div>
     <div>
-      <img (click)="scrollToTop()" class="logo" src="./../../../assets/logo2.png" alt="" />
+      <a href=""><img (click)="scrollToTop()" class="logo" src="./../../../assets/logo2.png" alt="" /></a>
     </div>
     <div class="header-menu">
       <div class="header-language">
@@ -34,19 +34,19 @@
       <div class="extended-links">
         <div class="extended-links">
           <a
-            (click)="closeHeader($event)"
+            (click)="closeHeader($event); navigateToSectionInMainContent('about-me')"
             [ngClass]="{ 'active-link': activeLink === 'about-me' }"
             data-link="about-me"
             >{{ translation.aboutMe }}</a
           >
           <a
-            (click)="closeHeader($event)"
+            (click)="closeHeader($event); navigateToSectionInMainContent('skills')"
             [ngClass]="{ 'active-link': activeLink === 'skills' }"
             data-link="skills"
             >{{ translation.mySkills }}</a
           >
           <a
-            (click)="closeHeader($event)"
+            (click)="closeHeader($event); navigateToSectionInMainContent('projects') "
             [ngClass]="{ 'active-link': activeLink === 'projects' }"
             data-link="projects"
             >{{ translation.portfolio }}</a
@@ -58,7 +58,7 @@
         <div class="header-bottom">
           <div class="bottom-content">
             <div>
-              <h1          (click)="closeHeader($event)"
+              <h1          (click)="closeHeader($event); navigateToSectionInMainContent('contact')"
               [ngClass]="{ 'active-link': activeLink === 'contact' }"
               data-link="contact">{{ translation.sayHi }}</h1>
               <p>{{ translation.email }}</p>

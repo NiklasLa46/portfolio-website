@@ -45,7 +45,11 @@
           name="acceptTerms"
           ngModel
           required />
-        <p [innerHTML]="privacyText"></p>
+          <p>
+            {{ privacyTextParts.one }}
+            <a [href]="getImprintUrl()" target="_blank" rel="noopener noreferrer">{{ privacyTextParts.policy }}</a>
+            {{ privacyTextParts.two }}
+          </p>
       </div>
     </div>
     <div class="bottom-div">

@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { LanguageService } from './../../language.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -11,7 +12,7 @@ import { LanguageService } from './../../language.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-
+  @Output() navigateToSection = new EventEmitter<string>(); 
   currentLanguage: 'en' | 'de' = 'en';
 
   translations: { 
@@ -39,7 +40,7 @@ export class HeaderComponent {
     }
   };
 
-  constructor(private languageService: LanguageService) {
+  constructor(private languageService: LanguageService, private router: Router) {
  
     this.languageService.currentLanguage$.subscribe((lang: string) => {
       this.currentLanguage = lang as 'en' | 'de';  
@@ -125,6 +126,11 @@ export class HeaderComponent {
     return this.translations[this.currentLanguage];  
   }
 
+  navigateToSectionInMainContent(section: string): void {
+    this.router.navigate(['/'], { fragment: section });
+    this.navigateToSection.emit(section); // This will emit the section ID to the parent if needed
+  }
+  
   scrollToTop(): void {
     window.scrollTo({
       top: 0,

@@ -3,6 +3,7 @@ import { ArrowSectionComponent } from "../arrow-section/arrow-section.component"
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { LanguageService } from '../language.service';  
+import { Router } from '@angular/router';
 
 interface ContactTranslations {
   h1: string;
@@ -13,7 +14,11 @@ interface ContactTranslations {
     email: string;
     message: string;
   };
-  privacyText: string;
+  privacyTextParts: {
+    one: string;     
+    policy: string;  
+    two: string;     
+  };
   button: string;
   errors: {
     required: string;
@@ -29,8 +34,7 @@ interface ContactTranslations {
   styleUrls: ['./contact.component.scss']
 })
 export class ContactComponent {
-  currentLanguage: 'en' | 'de' = 'en'; 
-
+  currentLanguage: 'en' | 'de' = 'en';
 
   translations: { [key in 'en' | 'de']: ContactTranslations } = {
     en: {
@@ -42,7 +46,11 @@ export class ContactComponent {
         email: 'Your email',
         message: 'Your message'
       },
-      privacyText: "I've read the <a href=''>privacy policy</a> and agree to the processing of my data outlined.",
+      privacyTextParts: {
+        one: "I've read the ",
+        policy: 'privacy policy',
+        two: ' and agree to the processing of my data outlined.'
+      },
       button: 'Send message',
       errors: {
         required: 'This field is required.',
@@ -58,7 +66,11 @@ export class ContactComponent {
         email: 'Ihre E-Mail',
         message: 'Ihre Nachricht'
       },
-      privacyText: "Ich habe die <a href=''>Datenschutzrichtlinie</a> gelesen und stimme der Verarbeitung meiner Daten gemäß den dargelegten Bestimmungen zu.",
+      privacyTextParts: {
+        one: 'Ich habe die ',
+        policy: 'Datenschutzrichtlinie',
+        two: ' gelesen und stimme der Verarbeitung meiner Daten gemäß den dargelegten Bestimmungen zu.'
+      },
       button: 'Nachricht senden',
       errors: {
         required: 'Dieses Feld ist erforderlich.',
@@ -67,11 +79,11 @@ export class ContactComponent {
     }
   };
 
-  constructor(private languageService: LanguageService) {}
+  constructor(private languageService: LanguageService, private router: Router) {}
 
   ngOnInit() {
     this.languageService.currentLanguage$.subscribe((lang: string) => {
-      this.currentLanguage = lang as 'en' | 'de';  
+      this.currentLanguage = lang as 'en' | 'de';
     });
   }
 
@@ -91,8 +103,8 @@ export class ContactComponent {
     return this.translations[this.currentLanguage].placeholders;
   }
 
-  get privacyText(): string {
-    return this.translations[this.currentLanguage].privacyText;
+  get privacyTextParts() {
+    return this.translations[this.currentLanguage].privacyTextParts;
   }
 
   get buttonText(): string {
@@ -102,7 +114,6 @@ export class ContactComponent {
   get errorMessages() {
     return this.translations[this.currentLanguage].errors;
   }
-
 
   onSubmit(form: any): void {
     if (form.valid) {
@@ -117,5 +128,9 @@ export class ContactComponent {
       top: 0,
       behavior: 'smooth'
     });
+  }
+
+  getImprintUrl() {
+    return this.router.createUrlTree(['/privacy']).toString();
   }
 }

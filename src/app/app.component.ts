@@ -10,11 +10,13 @@ import { ProjectsComponent } from "./projects/projects.component";
 import { ReferencesComponent } from "./references/references.component";
 import { ContactComponent } from './contact/contact.component';
 import { FooterComponent } from "./shared/footer/footer.component";
+import { PrivacyComponent } from './privacy/privacy.component';
+import { ImprintComponent } from './imprint/imprint.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, HeaderComponent, AtfComponent, AboutMeComponent, MySkillsComponent, ProjectsComponent, ReferencesComponent, ContactComponent, FooterComponent],
+  imports: [CommonModule, HeaderComponent, AtfComponent, AboutMeComponent, MySkillsComponent, ProjectsComponent, ReferencesComponent, ContactComponent, FooterComponent, PrivacyComponent, ImprintComponent, RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

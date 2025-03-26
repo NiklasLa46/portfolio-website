@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LanguageService } from './../../language.service'; 
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-footer',
@@ -16,12 +17,16 @@ export class FooterComponent implements OnInit {
     de: 'Impressum',
   };
 
-  constructor(private languageService: LanguageService) {}
+  constructor(private languageService: LanguageService, private router: Router) {}
 
   ngOnInit(): void {
     this.languageService.currentLanguage$.subscribe((lang) => {
       this.imprintText = this.translations[lang as 'en' | 'de'];
     });
+  }
+  
+  getImprintUrl() {
+    return this.router.createUrlTree(['/imprint']).toString();
   }
 }
 
