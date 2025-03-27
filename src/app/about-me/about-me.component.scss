@@ -123,3 +123,122 @@ h1 {
     width: 100%;
     max-width: 1259px;
   }
+
+  @media (max-width: 1450px) {
+    .about-me-main{
+      width:1000px
+    }
+
+    h1{
+      font-size: 62px;
+    }
+
+    .about-me-paragraph{
+      width: 489px;
+    }
+
+    .personal-img{
+      width: 426px;
+    }
+
+    .image-container{
+      width: 426px;
+      height: 426px;
+    }
+  }
+
+  @media (max-width: 1150px) {
+    .about-me-main{
+      width: 750px;
+      padding-top: 0px;
+    }
+
+    h1{
+      font-size: 46px;
+    }
+
+    .about-me-paragraph{
+      width: 366px;
+    }
+
+    .personal-img{
+      width: 319.5px;
+    }
+
+    .image-container{
+      width: 319.5px;
+      height: 319.5px;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .about-me-main{
+      width: 600px;
+    }
+
+    h1{
+      font-size: 36px;
+    }
+
+    .about-me-paragraph{
+      width: 292px;
+      font-size: 16px;
+    }
+
+    .personal-img{
+      width: 255.5px;
+    }
+
+    .image-container{
+      width: 255.5px;
+      height: 255.5px;
+    }
+  }
+  
+  @media (max-width: 650px) {
+    .about-me-main{
+      width: 320px;
+      align-items: center;
+    }
+    .about-me-main {
+      align-items: center;
+    }
+    
+    .about-me-content {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .about-me-btn-div{
+      margin-bottom: 24px;
+    }
+    
+    .arrow-div{
+      width: 100%;
+      max-width: 320px;
+      display: flex;
+      justify-content: center;
+    }
+
+    h1{
+      font-size: 26px;
+    }
+
+    .about-me-paragraph{
+      width: 266px;
+    }
+
+    .about-me-content-left{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .about-me-based{
+      font-size: 16px;
+    }
+
+    .about-me-remote{
+      font-size: 16px;
+    }
+  }
