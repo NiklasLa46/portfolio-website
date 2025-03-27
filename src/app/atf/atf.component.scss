@@ -1,4 +1,4 @@
-@import '../../styles.scss';
+@import "../../styles.scss";
 
 .atf-main {
   display: flex;
@@ -59,19 +59,19 @@
   font-family: "overpass";
   width: 100%;
   justify-content: space-around;
+  align-items: center;
   position: absolute;
   bottom: 0;
   > .atf-mail {
     transform: rotate(270deg);
     display: inline-block;
     text-align: center;
-   
+    height: 116px;
     > p {
       margin: 0;
     }
   }
   > .atf-arrow {
-
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -84,5 +84,111 @@
 }
 
 .animated-arrow {
-  transition: all 0.25s ease-in-out; /* Optional smooth transition for the image change */
+  transition: all 0.25s ease-in-out;
+}
+
+@media (max-width: 1050px) {
+  .caption-div {
+    width: 800px;
+    > h1 {
+      width: 800px;
+      font-size: 100px;
+      line-height: 100px;
+    }
+  }
+
+  .h1-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .subcaption-div{
+    >span{
+      width: 520px;
+    }
+    >h2{
+      width:276px;
+      font-size: 39px;
+    }
+  }
+}
+
+@media (max-width: 850px) {
+  .caption-div {
+    width: 600px;
+    > h1 {
+      width: 600px;
+      font-size: 75px;
+      line-height: 75px;
+    }
+  }
+
+  .subcaption-div{
+    >span{
+      width: 390px;
+    }
+    >h2{
+      width:207px;
+      font-size: 30px;
+    }
+  }
+}
+
+@media (max-width: 750px) {
+  .bottom-atf{
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 650px) {
+  .caption-div {
+    width: 400px;
+    > h1 {
+      width: 400px;
+      font-size: 49.5px;
+      line-height: 49.5px;
+    }
+  }
+
+  .subcaption-div{
+    padding-top: 0px;
+    >span{
+      width: 257px;
+    }
+    >h2{
+      width:136px;
+      font-size: 20px;
+      padding-top: 0px;
+    }
+  }
+}
+
+@media (max-width: 440px) {
+  .caption-div {
+    width: 300px;
+    > h1 {
+      width: 300px;
+      font-size: 37.5px;
+      line-height: 37.5px;
+    }
+  }
+
+  .subcaption-div{
+    height: 24px;
+    >span{
+      width: 195px;
+      
+    }
+    >h2{
+      width:95px;
+      font-size: 13.5px;
+    }
+  }
+}
+
+@media (max-width: 400px) {
+}
+
+@media (max-width: 750px) {
 }
