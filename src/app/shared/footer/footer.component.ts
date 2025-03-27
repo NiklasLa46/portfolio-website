@@ -28,5 +28,12 @@ export class FooterComponent implements OnInit {
   getImprintUrl() {
     return this.router.createUrlTree(['/imprint']).toString();
   }
+
+  scrollToContact() {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
 }
 

@@ -1,19 +1,28 @@
 <footer>
-    <div>
-      <div class="left-logos">
-        <a href=""><img class="logo" src="./../../../assets/logowhite.png" alt=""></a>
-        <p>© Niklas Lampe 2025</p>
-      </div>
-      <div class="right-logos">
-        <div class="icons">
-          <a href="https://github.com/NiklasLa46" target="_blank">
-            <img class="icon" src="./../../../assets/github.png" alt="GitHub" />
-          </a>          
-          <img class="icon" src="./../../../assets/linkedin.png" alt="">
-          <img class="icon" src="./../../../assets/mail.png" alt="">
-        </div>
-        <a class="imprint" [href]="getImprintUrl()" target="_blank" rel="noopener noreferrer">{{ imprintText }}</a>
-      </div>
+  <div>
+    <div class="left-logos">
+      <a href=""
+        ><img class="logo" src="./../../../assets/logowhite.png" alt=""
+      /></a>
+      <p>© Niklas Lampe 2025</p>
     </div>
-  </footer>
-  
+    <div class="right-logos">
+      <div class="icons">
+        <a href="https://github.com/NiklasLa46" target="_blank">
+          <img class="icon" src="./../../../assets/github.png" alt="GitHub" />
+        </a>
+        <a href="https://www.linkedin.com/in/niklas-lampe-b23a32358/" target="_blank">
+          <img class="icon" src="./../../../assets/linkedin.png" alt="" />
+        </a>
+        <img  (click)="scrollToContact()" class="icon" src="./../../../assets/mail.png" alt="" />
+      </div>
+      <a
+        class="imprint"
+        [href]="getImprintUrl()"
+        target="_blank"
+        rel="noopener noreferrer"
+        >{{ imprintText }}</a
+      >
+    </div>
+  </div>
+</footer>

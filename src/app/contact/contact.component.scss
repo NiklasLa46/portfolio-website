@@ -80,6 +80,9 @@ input[type="text"] {
   &:hover{
     outline: 2px white solid;
   }
+  &:focus { 
+    outline: 2px white solid;
+  }
 }
 
 input[type="email"] {
@@ -106,6 +109,9 @@ input[type="email"] {
     &:hover{
       outline: 2px white solid;
     }
+    &:focus { 
+      outline: 2px white solid;
+    }
   }
 
 textarea {
@@ -128,6 +134,9 @@ textarea {
     color: $backround_color;
   }
   &:hover{
+    outline: 2px white solid;
+  }
+  &:focus { 
     outline: 2px white solid;
   }
 }

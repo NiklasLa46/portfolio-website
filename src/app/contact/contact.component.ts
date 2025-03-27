@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ArrowSectionComponent } from "../arrow-section/arrow-section.component";
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { LanguageService } from '../language.service';  
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 interface ContactTranslations {
   h1: string;
@@ -23,6 +24,8 @@ interface ContactTranslations {
   errors: {
     required: string;
     email: string;
+    minLength: string;
+    invalidCharacters: string;
   };
 }
 
@@ -54,7 +57,9 @@ export class ContactComponent {
       button: 'Send message',
       errors: {
         required: 'This field is required.',
-        email: 'Please enter a valid email address.'
+        email: 'Please enter a valid email address.',
+        minLength: 'Must be at least 3 characters long.' ,
+        invalidCharacters: 'Only alphabetic characters are allowed.'
       }
     },
     de: {
@@ -74,10 +79,20 @@ export class ContactComponent {
       button: 'Nachricht senden',
       errors: {
         required: 'Dieses Feld ist erforderlich.',
-        email: 'Bitte geben Sie eine gültige E-Mail-Adresse ein.'
+        email: 'Bitte geben Sie eine gültige E-Mail-Adresse ein.',
+        minLength: 'Muss mindestens 3 Zeichen lang sein.' ,
+          invalidCharacters: 'Es sind nur Buchstaben erlaubt.'
       }
     }
   };
+
+  http = inject(HttpClient);
+
+  contactData = {
+    name: "",
+    email: "",
+    message: ""
+  }
 
   constructor(private languageService: LanguageService, private router: Router) {}
 
@@ -115,11 +130,35 @@ export class ContactComponent {
     return this.translations[this.currentLanguage].errors;
   }
 
-  onSubmit(form: any): void {
-    if (form.valid) {
-      console.log('Form Submitted', form.value);
-    } else {
-      console.log('Form is not valid');
+  mailTest = true;
+
+  post = {
+    endPoint: 'https://deineDomain.de/sendMail.php',
+    body: (payload: any) => JSON.stringify(payload),
+    options: {
+      headers: {
+        'Content-Type': 'text/plain',
+        responseType: 'text',
+      },
+    },
+  };
+
+  onSubmit(ngForm: NgForm) {
+    if (ngForm.submitted && ngForm.form.valid && !this.mailTest) {
+      this.http.post(this.post.endPoint, this.post.body(this.contactData))
+        .subscribe({
+          next: (response) => {
+
+            ngForm.resetForm();
+          },
+          error: (error) => {
+            console.error(error);
+          },
+          complete: () => console.info('send post complete'),
+        });
+    } else if (ngForm.submitted && ngForm.form.valid && this.mailTest) {
+
+      ngForm.resetForm();
     }
   }
 

@@ -29,7 +29,7 @@ export class HeaderComponent {
       mySkills: 'My skills',
       portfolio: 'Portfolio',
       sayHi: 'Say Hi!',
-      email: 'niklas.lampe00&@gmail.com',
+      email: 'niklas.lampe00@gmail.com',
     },
     de: {
       aboutMe: 'Über mich',

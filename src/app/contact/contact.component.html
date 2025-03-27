@@ -1,10 +1,14 @@
 <div class="arrow-div" id="contact">
   <app-arrow-section class="arrow-sec"></app-arrow-section>
 </div>
-<div class="gradient-div">
-</div>
+<div class="gradient-div"></div>
 
-<form #contactForm="ngForm" id="contact" (ngSubmit)="onSubmit(contactForm)" class="contact-form">
+<form
+  #contactForm="ngForm"
+  id="contact"
+  (ngSubmit)="onSubmit(contactForm)"
+  class="contact-form"
+>
   <div class="h1-div">
     <h1>{{ h1Text }}</h1>
   </div>
@@ -14,51 +18,93 @@
       <h3>{{ h3Text }}</h3>
     </div>
     <div class="input-div">
-      <input 
-        placeholder="{{ placeholders.name }}" 
-        type="text" 
-        name="name" 
-        ngModel
-        required />
-      <input 
-        placeholder="{{ placeholders.email }}" 
-        type="email" 
-        name="email" 
-        ngModel
-        #email="ngModel" 
-        required 
-        email />
-      <div *ngIf="email.invalid && (email.dirty || email.touched)" class="error-message">
+      <input
+        placeholder="{{ placeholders.name }}"
+        type="text"
+        name="name"
+        [(ngModel)]="contactData.name"
+        #name="ngModel"
+        minlength="3"
+        pattern="^[a-zA-Z\s]*$"
+        required
+      />
+      <div
+        *ngIf="name.invalid && (name.dirty || name.touched)"
+        class="error-message"
+      >
+        <p *ngIf="name.errors?.['required']">{{ errorMessages.required }}</p>
+        <p *ngIf="name.errors?.['minlength']">{{ errorMessages.minLength }}</p>
+        <p *ngIf="name.errors?.['pattern']">
+          {{ errorMessages.invalidCharacters }}
+        </p>
+      </div>
+      <input
+        placeholder="{{ placeholders.email }}"
+        type="email"
+        name="email"
+        [(ngModel)]="contactData.email"
+        #email="ngModel"
+        required
+        email
+        pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}"
+      />
+      <div
+        *ngIf="email.invalid && (email.dirty || email.touched)"
+        class="error-message"
+      >
         <p *ngIf="email.errors?.['required']">{{ errorMessages.required }}</p>
         <p *ngIf="email.errors?.['email']">{{ errorMessages.email }}</p>
       </div>
-      <textarea 
-        placeholder="{{ placeholders.message }}" 
-        name="message" 
-        ngModel
-        required></textarea>
+      <textarea
+        placeholder="{{ placeholders.message }}"
+        name="message"
+        [(ngModel)]="contactData.message"
+        #message="ngModel"
+        minlength="3"
+        required
+      ></textarea>
+      <div
+        *ngIf="message.invalid && (message.dirty || message.touched)"
+        class="error-message"
+      >
+        <p *ngIf="message.errors?.['required']">{{ errorMessages.required }}</p>
+        <p *ngIf="message.errors?.['minlength']">
+          {{ errorMessages.minLength }}
+        </p>
+      </div>
 
       <div class="check-div">
-        <input 
-          class="checkbox" 
-          type="checkbox" 
+        <input
+          class="checkbox"
+          type="checkbox"
           name="acceptTerms"
           ngModel
-          required />
-          <p>
-            {{ privacyTextParts.one }}
-            <a [href]="getImprintUrl()" target="_blank" rel="noopener noreferrer">{{ privacyTextParts.policy }}</a>
-            {{ privacyTextParts.two }}
-          </p>
+          required
+        />
+        <p>
+          {{ privacyTextParts.one }}
+          <a
+            [href]="getImprintUrl()"
+            target="_blank"
+            rel="noopener noreferrer"
+            >{{ privacyTextParts.policy }}</a
+          >
+          {{ privacyTextParts.two }}
+        </p>
       </div>
     </div>
     <div class="bottom-div">
       <div class="button-container">
-        <button type="submit" [disabled]="!contactForm.valid">{{ buttonText }}</button>
+        <button type="submit" [disabled]="!contactForm.valid">
+          {{ buttonText }}
+        </button>
       </div>
-      <img (click)="scrollToTop()" class="scroll-up-img" src="./../../assets/scroll-up-arrow/scroll-up-arrow-def.png" alt="Scroll Up Arrow">
+      <img
+        (click)="scrollToTop()"
+        class="scroll-up-img"
+        src="./../../assets/scroll-up-arrow/scroll-up-arrow-def.png"
+        alt="Scroll Up Arrow"
+      />
     </div>
   </div>
 </form>
-
-  
