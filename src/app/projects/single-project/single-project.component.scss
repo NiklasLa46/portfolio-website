@@ -1,223 +1,392 @@
 @import "./../../../styles.scss";
 .project-main {
-    width: 1259px;
-    margin: 0 auto;
-    display: flex;
-    height: 460px;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-    padding-top: 60px;
-  
-    &:hover .project-img {
-      filter: grayscale(0); 
-    }
-  
-    &:hover .project-arrow {
-      opacity: 1;
-      transform: translate(10px, -50%) scale(1.4) rotate(0deg); 
-    }
-  
-    &:hover .project-arrow.reversed {
-        opacity: 1;
-        transform: translate(10px, -50%) scale(1.4) rotate(-90deg); 
-      }
+  width: 1259px;
+  margin: 0 auto;
+  display: flex;
+  height: 460px;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  padding-top: 60px;
 
-    &:hover .image-container::after {
-      opacity: 1;  
-    }
-  
-    &:hover .project-info {
-      transform: translateX(0);
-      opacity: 1; 
-    }
-  
-    img {
-      display: block;
-    }
-  
-    &:hover::after {
-      opacity: 1;
-    }
+  &:hover .project-img {
+    filter: grayscale(0);
   }
-  
-  .project-main.row-reverse {
-    flex-direction: row-reverse;
-  }
-  
-  .project-img {
-    width: 620px;
-    height: 393px;
-    filter: grayscale(100%); 
-    transition: filter 0.5s ease; 
-  }
-  
-  .image-container img {
-    display: block;
-  }
-  
-  .image-container::after {
-    content: "";
-    position: absolute;
-    top: 16px;
-    left: 16px;
-    right: -16px;
-    bottom: -16px;
-    border: 4px solid rgb(0, 0, 0);
-    opacity: 0;
-    pointer-events: none;
-    transition: all 0.3s ease;
-  }
-  
-  .image-container {
-    position: relative;
-    display: inline-block;
-  
-    .project-arrow {
-      z-index: 999;
-      position: absolute;
-      top: 50%; 
-      left: 97%; 
-      transform: translate(10px, -50%) scale(0.6) rotate(145deg); 
-      width: 50px; 
-      height: auto; 
-      opacity: 0; 
-      pointer-events: none;
-      transition: transform 0.3s;
-    }
-  
-    .project-arrow.reversed {
-        z-index: 999;
-        position: absolute;
-        top: 50%; 
-        left: -8%; 
-        width: 50px; 
-        height: auto; 
-        pointer-events: none;
-        transition: transform 0.3s;
 
-       
-    }
+  &:hover .project-arrow {
+    opacity: 1;
+    transform: translate(10px, -50%) scale(1.4) rotate(0deg);
   }
-  
-  .image-container.reversed::after {
-    content: "";
-    position: absolute;
-    top: 16px;
-    left: -16px;
-    right: 16px;
-    bottom: -16px;
-    border: 4px solid rgb(0, 0, 0);
-    opacity: 0;
-    pointer-events: none;
-    transition: all 0.3s ease;
+
+  &:hover .project-arrow.reversed {
+    opacity: 1;
+    transform: translate(10px, -50%) scale(1.4) rotate(-90deg);
   }
-  
-  .num-div {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 48px;
-    font-family: "syne";
-    font-weight: 700;
-    color: black;
-    z-index: 10;
-    padding-top: 60px;
-  }
-  
-  .project-main.row-reverse .num-div {
-    left: 10px; 
-    right: unset; 
-  }
-  
-  .project-main:not(.row-reverse) .num-div {
-    right: 10px; 
-    left: unset; 
-  }
-  
-  .project-main > div {
-    flex: 1;
-    margin: 0 10px;
-  }
-  
-  .project-info {
-    padding-left: 140px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    transform: translateX(-30%);  /* Default state (for odd projectIndex) */
-    opacity: 0;
-    transition: transform 0.5s ease, opacity 0.5s ease;
-  
-    > h2 {
-      font-family: "syne800";
-      font-size: 45px;
-      padding: 0;
-      padding-bottom: 15px;
-      margin: 0;
-    }
-  
-    > h3 {
-      font-family: "overpass";
-      font-weight: 400;
-      font-size: 23px;
-      color: $highlight_color;
-      padding: 0;
-      padding-bottom: 15px;
-      margin: 0;
-    }
-  
-    > p {
-      font-family: "overpass";
-      font-weight: 400;
-      font-size: 16px;
-      color: black;
-      padding: 0;
-      margin: 0;
-      text-align: left;
-    }
-  }
-  
-  .project-main:hover .project-info {
-    transform: translateX(0); /* Slide into place */
+
+  &:hover .image-container::after {
     opacity: 1;
   }
-  
-  .project-info.slide-in {
-    transform: translateX(30%); /* Slide in from right */
+
+  &:hover .project-info {
+    transform: translateX(0);
+    opacity: 1;
   }
-  
-  .project-info.slide-in-reverse {
-    transform: translateX(-30%); /* Slide in from left */
+
+  img {
+    display: block;
   }
-  
+
+  &:hover::after {
+    opacity: 1;
+  }
+}
+
+.project-main.row-reverse {
+  flex-direction: row-reverse;
+}
+
+.project-img {
+  width: 620px;
+  height: 393px;
+  filter: grayscale(100%);
+  transition: filter 0.5s ease;
+}
+
+.image-container img {
+  display: block;
+}
+
+.image-container::after {
+  content: "";
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  right: -16px;
+  bottom: -16px;
+  border: 4px solid rgb(0, 0, 0);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.image-container {
+  position: relative;
+  display: inline-block;
+
+  .project-arrow {
+    z-index: 999;
+    position: absolute;
+    top: 50%;
+    left: 97%;
+    transform: translate(10px, -50%) scale(0.6) rotate(145deg);
+    width: 50px;
+    height: auto;
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.3s;
+  }
+
+  .project-arrow.reversed {
+    z-index: 999;
+    position: absolute;
+    top: 50%;
+    left: -8%;
+    width: 50px;
+    height: auto;
+    pointer-events: none;
+    transition: transform 0.3s;
+  }
+}
+
+.image-container.reversed::after {
+  content: "";
+  position: absolute;
+  top: 16px;
+  left: -16px;
+  right: 16px;
+  bottom: -16px;
+  border: 4px solid rgb(0, 0, 0);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.num-div {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 48px;
+  font-family: "syne";
+  font-weight: 700;
+  color: black;
+  z-index: 10;
+  padding-top: 60px;
+}
+
+.project-main.row-reverse .num-div {
+  left: 10px;
+  right: unset;
+}
+
+.project-main:not(.row-reverse) .num-div {
+  right: 10px;
+  left: unset;
+}
+
+.project-main > div {
+  flex: 1;
+  margin: 0 10px;
+}
+
+.project-info {
+  padding-left: 140px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transform: translateX(-30%);
+  opacity: 0;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+
+  > h2 {
+    font-family: "syne800";
+    font-size: 45px;
+    padding: 0;
+    padding-bottom: 15px;
+    margin: 0;
+  }
+
+  > h3 {
+    font-family: "overpass";
+    font-weight: 400;
+    font-size: 23px;
+    color: $highlight_color;
+    padding: 0;
+    padding-bottom: 15px;
+    margin: 0;
+  }
+
+  > p {
+    font-family: "overpass";
+    font-weight: 400;
+    font-size: 16px;
+    color: black;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+  }
+}
+
+.project-main:hover .project-info {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.project-info.slide-in {
+  transform: translateX(30%);
+}
+
+.project-info.slide-in-reverse {
+  transform: translateX(-30%);
+}
+
+.project-main.row-reverse .project-info {
+  padding-left: 0;
+  padding-right: 140px;
+}
+
+.btn-div {
+  margin-top: 35px;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  > a > button {
+    background-color: $backround_color;
+    cursor: pointer;
+    font-family: "overpass";
+    font-size: 23px;
+    width: 205px;
+    height: 68px;
+    outline: 4px solid black;
+    border: none;
+    transition: all 0.1s ease;
+
+    &:hover {
+      width: 230px;
+      height: 70px;
+      font-weight: bold;
+    }
+  }
+}
+
+@media (max-width: 1350px) {
+  .project-main {
+    max-width: 1007.2px;
+    height: 368px;
+  }
+
+  .project-img {
+    width: 496px;
+    height: 314.4px;
+  }
+
+  .project-arrow{
+    padding-right: 20px;
+  }
+
+.project-arrow.reversed{
+    padding-right: 0px;
+  }
+
   .project-main.row-reverse .project-info {
-    padding-left: 0; /* Adjust for reverse row */
-    padding-right: 140px; /* Adjust for reverse row */
+    padding-right: 70px;
+    > p {
+      max-width: 400px;
+    }
+
+    h2 {
+      font-size: 35px;
+      display: flex;
+      width: 100%;
+    }
+
+    h3 {
+      font-size: 19px;
+    }
   }
-  
+
+  .project-info {
+    padding-left: 70px;
+    > p {
+      max-width: 400px;
+    }
+
+    h2 {
+      font-size: 35px;
+      display: flex;
+      width: 100%;
+    }
+
+    h3 {
+      font-size: 19px;
+    }
+  }
+
+  .num-div {
+    font-size: 38px;
+  }
+
   .btn-div {
-    margin-top: 35px;
-    height: 80px;
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    >a> button {
-      background-color: $backround_color;
-      cursor: pointer;
-      font-family: "overpass";
-      font-size: 23px;
-      width: 205px;
-      height: 68px;
-      outline: 4px solid black;
-      border: none;
-      transition: all 0.1s ease;
-  
-      &:hover {
-        width: 230px;
-        height: 70px;
-        font-weight: bold;
+    max-width: 400px;
+    > a {
+      > button {
+        width: 170px;
+        max-width: 190px;
       }
     }
   }
-  
+}
+
+@media (max-width: 1050px) {
+  .project-main {
+    max-width: 496px;
+    height: auto;
+    flex-direction: column;
+  }
+
+  .num-div {
+    padding-bottom: 20px;
+    padding-top: 0;
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .project-info {
+    padding-top: 20px;
+    padding-left: 0px;
+  }
+
+  .project-main.row-reverse .project-info {
+    padding-top: 20px;
+    padding-left: 0px;
+  }
+}
+
+@media (max-width: 650px) {
+  .project-main {
+    max-width: 332px;
+  }
+
+  .project-arrow.reversed{
+    padding-bottom: 25px;
+  }
+
+  .project-img {
+    width: 332px;
+    height: 210.4px;
+  }
+
+  .btn-div {
+    max-width: 300px;
+    > a {
+      > button {
+        width: 120px;
+        max-width: 150px;
+        height: 60px;
+        max-height: 65px;
+      }
+    }
+  }
+}
+
+@media (max-width: 450px) {
+  .project-main {
+    padding-top: 0px;
+    max-width: 222px;
+    height: auto;
+  }
+
+  .project-img {
+    width: 222px;
+    height: 140.7px;
+  }
+
+  .project-arrow {
+    width: 30px !important;
+ 
+  }
+
+  .project-info {
+    max-width: 222px;
+    > h2 {
+      font-size: 30px;
+      padding-bottom: 5px;
+    }
+    > h3 {
+      font-size: 16px;
+      padding-bottom: 5px;
+    }
+  }
+
+  .num-div {
+    > p {
+      font-size: 20px;
+    }
+  }
+
+  .btn-div {
+    max-width: 222px;
+    margin-top: 10px;
+    > a {
+      > button {
+        font-size: 16px;
+        width: 80px;
+        max-width: 90px;
+        height: 40px;
+        max-height: 45px;
+      }
+    }
+  }
+}

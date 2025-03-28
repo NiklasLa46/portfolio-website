@@ -1,13 +1,19 @@
-<app-single-project 
-  *ngFor="let project of projects; let i = index" 
-  [projectNumber]="project.number" 
-  [projectTitle]="getTranslatedTitle(project)"  
-  [projectTech]="project.tech" 
-  [projectImage]="project.image" 
-  [projectDescription]="getTranslatedDescription(project)"  
-  [projectArrow]="project.arrow" 
-  [githubLink]="project.githubLink"
-  [liveTestLink]="project.liveTestLink"
-  [projectIndex]="i">
-</app-single-project>
+<div>
+  <h1>Portfolio</h1>
+  <h2 [innerHTML]="h2Text"></h2>
+  <div class="projects-main">
+    <app-single-project 
+    *ngFor="let project of projects; let i = index" 
+    [projectNumber]="project.number" 
+    [projectTitle]="getTranslatedTitle(project)"  
+    [projectTech]="project.tech" 
+    [projectImage]="project.image" 
+    [projectDescription]="getTranslatedDescription(project)"  
+    [projectArrow]="project.arrow" 
+    [githubLink]="project.githubLink"
+    [liveTestLink]="project.liveTestLink"
+    [projectIndex]="i">
+  </app-single-project>
+  </div>
+</div>
 

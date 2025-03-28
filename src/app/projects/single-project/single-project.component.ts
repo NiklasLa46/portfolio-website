@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit, HostListener  } from '@angular/core';
 
 
 @Component({
@@ -9,7 +9,7 @@ import { Component, Input } from '@angular/core';
   templateUrl: './single-project.component.html',
   styleUrl: './single-project.component.scss'
 })
-export class SingleProjectComponent {
+export class SingleProjectComponent implements OnInit {
   @Input() projectNumber: string = '';
   @Input() projectTitle: string = '';
   @Input() projectTech: string = '';
@@ -19,4 +19,19 @@ export class SingleProjectComponent {
   @Input() projectIndex!: number; 
   @Input() githubLink: string = '';
   @Input() liveTestLink: string = '';
+
+  isAbove1050: boolean = true; // Default to true for screens larger than 1050px
+
+  ngOnInit() {
+    this.checkScreenWidth();
+  }
+
+  @HostListener('window:resize')
+  onResize() {
+    this.checkScreenWidth();
+  }
+
+  checkScreenWidth() {
+    this.isAbove1050 = window.innerWidth > 1050;
+  }
 }

@@ -31,7 +31,7 @@ export class ProjectsComponent implements OnInit {
       h2: 'Explore a selection of my work here - Interact with <br> projects to see my skills in action',
     },
     de: {
-      h2: 'Entdecken Sie hier eine Auswahl meiner Arbeiten - Interagieren Sie mit <br> Projekten, um meine Fähigkeiten in Aktion zu sehen',
+      h2: 'Entdecken Sie hier eine Auswahl meiner Projekte - Interagieren Sie mit <br> Projekten, um meine Fähigkeiten in Aktion zu sehen',
     },
   };
 

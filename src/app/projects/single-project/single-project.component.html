@@ -1,4 +1,4 @@
-<div class="project-main" [ngClass]="{'row-reverse': (projectIndex + 1) % 2 === 0}">
+<div class="project-main"   [ngClass]="{'row-reverse': (projectIndex + 1) % 2 === 0 && isAbove1050}">
   <div class="num-div" [ngStyle]="{'left': (projectIndex + 1) % 2 === 0 ? '0px' : '', 'right': (projectIndex + 1) % 2 !== 0 ? '10px' : ''}">
     {{ projectNumber }}
   </div>
