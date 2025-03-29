@@ -76,6 +76,7 @@ header > div {
   height: 3px;
   background-color: black;
 }
+
 .header-extended {
   position: fixed;
   left: 0;
@@ -292,6 +293,14 @@ p {
     font-size: 78px;
     padding: 40px 31.5px;
   }
+
+  .header-language {
+    display: none;
+    font-size: 14px;
+    &.visible {
+      display: flex;
+    }
+  }
 }
 
 @media (max-width: 500px) {
@@ -332,12 +341,5 @@ p {
 
   .header-language {
     padding-right: 0px;
-  }
-}
-
-@media (max-width: 750px) {
-  .header-language {
-    display: none;
-    font-size: 14px;
   }
 }

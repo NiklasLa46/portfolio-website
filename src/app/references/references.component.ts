@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SingleReferenceComponent } from './single-reference/single-reference.component';
 import { CommonModule } from '@angular/common';
 import { LanguageService } from '../language.service';  
+import { ArrowSectionComponent } from '../arrow-section/arrow-section.component';
 
 interface ReferenceTranslation {
   h1: string;
@@ -13,7 +14,7 @@ interface ReferenceTranslation {
 @Component({
   selector: 'app-references',
   standalone: true,
-  imports: [SingleReferenceComponent, CommonModule],
+  imports: [SingleReferenceComponent, CommonModule, ArrowSectionComponent],
   templateUrl: './references.component.html',
   styleUrls: ['./references.component.scss', '../../styles.scss'],
 })
