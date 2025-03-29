@@ -1,59 +1,125 @@
 @import "../../../styles.scss";
-h1{
-    font-family: "syne";
-    font-weight: 700;
-    font-size: 22px;
-    padding: 0;
-    margin: 0;
+h1 {
+  font-family: "syne";
+  font-weight: 700;
+  font-size: 22px;
+  padding: 0;
+  margin: 0;
 }
 
 h2 {
-    font-family: 'overpass';
-    font-weight: 400;
-    font-size: 12px;
-    padding: 0;
-    margin: 0;
+  font-family: "overpass";
+  font-weight: 400;
+  font-size: 12px;
+  padding: 0;
+  margin: 0;
 }
 
-p{
-    font-family: 'overpass';
-    font-weight: 400;
-    font-size: 18px;
-    padding: 0;
-    margin: 0;
-    padding-top: 24px;
-    padding-left: 16px;
-    padding-right: 16px;
+p {
+  font-family: "overpass";
+  font-weight: 400;
+  font-size: 18px;
+  padding: 0;
+  margin: 0;
+  padding-top: 24px;
+  padding-left: 16px;
+  padding-right: 16px;
 }
 
-.ref-main{
-    height: 344px;
-    width: 397px;
-    border: 4px black solid;
-    margin-left: 12px;
-    margin-right: 12px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    &:hover {
-        border: 4px #00bc8f solid;
-      }
+.ref-main {
+  height: 344px;
+  width: 397px;
+  border: 4px black solid;
+  margin-left: 12px;
+  margin-right: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  &:hover {
+    border: 4px #00bc8f solid;
+  }
 }
 
 .ref-main:hover img {
-    filter: brightness(0) saturate(100%) invert(49%) sepia(79%) saturate(2240%) hue-rotate(132deg) brightness(97%) contrast(101%);
+  filter: brightness(0) saturate(100%) invert(49%) sepia(79%) saturate(2240%)
+    hue-rotate(132deg) brightness(97%) contrast(101%);
+}
+
+.ref-info {
+  height: 107px;
+  width: 134px;
+  padding-top: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  > img {
+    width: 28.33px;
+    height: 20px;
+  }
+}
+
+@media (max-width: 900px) {
+  .ref-main {
+    height: 275px;
+    width: 317px;
   }
 
-.ref-info{
-    height: 107px;
-    width: 134px;
-    padding-top: 24px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    >img{
-        width: 28.33px;
-        height: 20px;
-    }
+  p {
+    font-size: 16px;
+    padding-top: 18px;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .ref-info {
+    height: 85px;
+    width: 107px;
+    padding-top: 18px;
+  }
 }
+
+@media (max-width: 700px) {
+  .ref-main {
+    margin-top: 16px;
+  }
+}
+
+@media (max-width: 700px) {
+    .ref-main {
+        height: 253px;
+        width: 292px;
+      }
+    
+      p {
+        padding-top: 14px;
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+    
+      .ref-info {
+        height: 78.2px;
+        width: 97.75px;
+        padding-top: 14px;
+        > img {
+            width: 22.33px;
+            height: 16px;
+          }
+      }
+
+      h1 {
+        font-family: "syne";
+        font-weight: 700;
+        font-size: 20px;
+        padding: 0;
+        margin: 0;
+      }
+      
+      h2 {
+        font-family: "overpass";
+        font-weight: 400;
+        font-size: 12px;
+        padding: 0;
+        margin: 0;
+      }
+  }
