@@ -195,7 +195,7 @@ h1 {
     }
   }
   
-  @media (max-width: 650px) {
+  @media (max-width: 660px) {
     .about-me-main{
       width: 320px;
       align-items: center;
@@ -240,5 +240,14 @@ h1 {
 
     .about-me-remote{
       font-size: 16px;
+    }
+
+    .personal-img{
+      width: 245.5px;
+    }
+
+    .image-container{
+      width: 245.5px;
+      height: 245.5px;
     }
   }
