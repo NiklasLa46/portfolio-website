@@ -51,7 +51,7 @@ export class ProjectsComponent implements OnInit {
       image: './../../../assets/project-pics/join.jpg',
       arrow: './../../../assets/project-pics/project-arrow.png',
          githubLink: 'https://github.com/Andrei-Octavian-Buha/join',
-    liveTestLink: 'https://your-live-test-link.com/join'
+    liveTestLink: 'https://www.join-381.developerakademie.net/join/'
     },
     {
       number: '02/04',
@@ -64,7 +64,7 @@ export class ProjectsComponent implements OnInit {
       image: './../../../assets/project-pics/pollo-loco.png',
       arrow: './../../../assets/project-pics/project-arrow.png',
          githubLink: 'https://github.com/NiklasLa46/PolloLoco',
-    liveTestLink: 'https://your-live-test-link.com/join'
+    liveTestLink: 'https://niklas-lampe.developerakademie.net/El%20Pollo%20Loco/'
     },
     {
       number: '03/04',
@@ -90,7 +90,7 @@ export class ProjectsComponent implements OnInit {
       image: './../../../assets/project-pics/pokedex.jpg',
       arrow: './../../../assets/project-pics/project-arrow.png',
          githubLink: 'https://github.com/NiklasLa46/Pokedex',
-    liveTestLink: 'https://your-live-test-link.com/join'
+    liveTestLink: 'https://niklas-lampe.developerakademie.net/Pokedex/Pokedex/'
     }
   ];
 
