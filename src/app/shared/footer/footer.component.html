@@ -11,18 +11,20 @@
         <a href="https://github.com/NiklasLa46" target="_blank">
           <img class="icon" src="./../../../assets/github.png" alt="GitHub" />
         </a>
-        <a href="https://www.linkedin.com/in/niklas-lampe-b23a32358/" target="_blank">
+        <a
+          href="https://www.linkedin.com/in/niklas-lampe-b23a32358/"
+          target="_blank"
+        >
           <img class="icon" src="./../../../assets/linkedin.png" alt="" />
         </a>
-        <img  (click)="scrollToContact()" class="icon" src="./../../../assets/mail.png" alt="" />
+        <img
+          (click)="scrollToContact()"
+          class="icon"
+          src="./../../../assets/mail.png"
+          alt=""
+        />
       </div>
-      <a
-        class="imprint"
-        [href]="getImprintUrl()"
-        target="_blank"
-        rel="noopener noreferrer"
-        >{{ imprintText }}</a
-      >
+      <a class="imprint" (click)="openImprint($event)">{{ imprintText }}</a>
     </div>
   </div>
 </footer>

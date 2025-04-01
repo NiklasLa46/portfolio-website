@@ -25,8 +25,9 @@ export class FooterComponent implements OnInit {
     });
   }
   
-  getImprintUrl() {
-    return this.router.createUrlTree(['/imprint']).toString();
+  openImprint(event: Event) {
+    event.preventDefault(); 
+    window.open(this.router.serializeUrl(this.router.createUrlTree(['/imprint'])), '_blank');
   }
 
   scrollToContact() {

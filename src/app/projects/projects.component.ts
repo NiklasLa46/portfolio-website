@@ -64,7 +64,7 @@ export class ProjectsComponent implements OnInit {
       image: './../../../assets/project-pics/pollo-loco.png',
       arrow: './../../../assets/project-pics/project-arrow.png',
          githubLink: 'https://github.com/NiklasLa46/PolloLoco',
-    liveTestLink: 'https://niklas-lampe.developerakademie.net/El%20Pollo%20Loco/'
+    liveTestLink: '/PolloLoco/index.html'
     },
     {
       number: '03/04',
@@ -90,7 +90,7 @@ export class ProjectsComponent implements OnInit {
       image: './../../../assets/project-pics/pokedex.jpg',
       arrow: './../../../assets/project-pics/project-arrow.png',
          githubLink: 'https://github.com/NiklasLa46/Pokedex',
-    liveTestLink: 'https://niklas-lampe.developerakademie.net/Pokedex/Pokedex/'
+    liveTestLink: '/Pokedex/index.html'
     }
   ];
 
