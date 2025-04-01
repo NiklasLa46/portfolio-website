@@ -28,7 +28,6 @@ export class MainContentComponent implements AfterViewInit {
   ngAfterViewInit() {
     this.route.fragment.subscribe((fragment: string | null) => {
       if (fragment) {
-        console.log('Fragment received:', fragment); // Debug log
         this.scrollToSection(fragment);
       }
     });
@@ -37,10 +36,9 @@ export class MainContentComponent implements AfterViewInit {
   scrollToSection(sectionId: string): void {
     const section = document.getElementById(sectionId);
     if (section) {
-      console.log(`Scrolling to section: ${sectionId}`); // Debug log
       section.scrollIntoView({ behavior: 'smooth' });
     } else {
-      console.log(`Section not found: ${sectionId}`); // Debug log
+      return
     }
   }
 }

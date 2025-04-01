@@ -32,7 +32,7 @@ interface ContactTranslations {
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [ArrowSectionComponent, FormsModule, CommonModule],
+  imports: [ FormsModule, CommonModule],
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss']
 })
@@ -130,10 +130,10 @@ export class ContactComponent {
     return this.translations[this.currentLanguage].errors;
   }
 
-  mailTest = true;
+  mailTest = false;
 
   post = {
-    endPoint: 'https://deineDomain.de/sendMail.php',
+    endPoint: 'https://niklas-lampe.developerakademie.net/angular-projects/sendMail.php',
     body: (payload: any) => JSON.stringify(payload),
     options: {
       headers: {

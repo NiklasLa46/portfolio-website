@@ -343,3 +343,30 @@ p {
     padding-right: 0px;
   }
 }
+
+@media (max-height: 668px){
+  .gradient-div{
+    height: 100px;
+  }
+
+  .bottom-content{
+    padding-top: 10px;
+  }
+
+  .bottom-text{
+    >p{
+      padding: 0px;
+      margin: 0px;
+    }
+  }
+
+  .icons{
+    padding-bottom: 50px;
+  }
+
+  .extended-links{
+    >a{
+      margin-bottom: 20px;
+    }
+  }
+}
