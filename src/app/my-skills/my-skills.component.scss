@@ -112,7 +112,6 @@ p {
 
 .single-skill {
   position: relative;
-  overflow: hidden;
 }
 
 .skill-icon {
@@ -132,7 +131,7 @@ p {
 }
 
 .single-skill:hover .skill-icon,
-.learn-icon:hover {
+.single-skill:hover .learn-icon{
   animation: circular-back-and-forth 0.25s ease-in-out;
 }
 

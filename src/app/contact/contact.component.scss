@@ -277,6 +277,20 @@ div {
   content: url("./../../assets/scroll-up-arrow/scroll-up-arrow-hov.png");
 }
 
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus {
+  background-color: black !important;
+  -webkit-text-fill-color: #fffcf3 !important;
+  -webkit-box-shadow: 0 0 0px 1000px black inset !important;
+  box-shadow: 0 0 0px 1000px black inset !important;
+  caret-color: #fffcf3 !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
 @media (max-width: 1350px) {
   h1{
     padding-left: 24px;
