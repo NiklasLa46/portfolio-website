@@ -192,6 +192,7 @@ p {
   font-family: Overpass;
   font-weight: 400;
   font-size: 14px;
+  max-width: 560px;
 }
 
 input[type="checkbox"] {
@@ -311,6 +312,10 @@ div {
   input[type="email"],
   textarea, .input-div {
     width: 462.75px;
+  }
+
+  p{
+    max-width: 420px;
   }
 }
 

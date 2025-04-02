@@ -20,7 +20,7 @@ export class SingleProjectComponent implements OnInit {
   @Input() githubLink: string = '';
   @Input() liveTestLink: string = '';
 
-  isAbove1050: boolean = true; // Default to true for screens larger than 1050px
+  isAbove1050: boolean = true; 
 
   ngOnInit() {
     this.checkScreenWidth();

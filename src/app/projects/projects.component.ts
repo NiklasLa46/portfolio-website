@@ -68,19 +68,6 @@ export class ProjectsComponent implements OnInit {
     },
     {
       number: '03/04',
-      title: { en: 'DABubble', de: 'DABubble' },
-      tech: 'Angular | TypeScript | Firebase',
-      description: {
-        en: 'This App is a Slack Clone App. It revolutionizes team communication and collaboration with its intuitive interface, real-time messaging, and robust channel organization.',
-        de: 'Diese App ist ein Slack-Klon. Sie revolutioniert die Teamkommunikation und Zusammenarbeit mit ihrer intuitiven Benutzeroberfläche, Echtzeit-Nachrichten und robuster Kanalorganisation.'
-      },
-      image: './../../../assets/project-pics/da-bubble.jpg',
-      arrow: './../../../assets/project-pics/project-arrow.png',
-         githubLink: 'https://github.com/your-repo/join',
-    liveTestLink: 'https://your-live-test-link.com/join'
-    },
-    {
-      number: '04/04',
       title: { en: 'Pokédex', de: 'Pokédex' },
       tech: 'JavaScript | HTML | CSS | Api',
       description: {

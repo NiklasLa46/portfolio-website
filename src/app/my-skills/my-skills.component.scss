@@ -176,12 +176,22 @@ p {
   .skills-main {
     max-width: 1059px;
   }
+  .skill-learn{
+    >p{
+      max-width: 859px;
+    }
+  }
 }
 
 @media (max-width: 1150px) {
   .skills-main {
     width: 100%;
     max-width: 859px;
+  }
+  .skill-learn{
+    >p{
+      max-width: 659px;
+    }
   }
 }
 

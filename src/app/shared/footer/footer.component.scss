@@ -42,9 +42,14 @@ footer {
   transition: transform 0.3s ease;
 }
 
+.mail{
+  padding-bottom: 4px;
+}
+
 .icon:hover {
   transform: translateY(-8px);
 }
+
 .icons {
   width: 204px;
   display: flex;
