@@ -16,6 +16,17 @@
   }
 }
 
+.success-message {
+  color: $highlight_color;
+  font-size: 12px;
+  margin-top: 5px;
+  > p {
+    padding: 0;
+    margin: 0;
+    padding-bottom: 12px;
+  }
+}
+
 h1 {
   font-family: "syne800";
   font-size: 78px;

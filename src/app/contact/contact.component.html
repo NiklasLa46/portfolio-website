@@ -69,7 +69,9 @@
           {{ errorMessages.minLength }}
         </p>
       </div>
-
+      <div *ngIf="successMessage" class="success-message">
+        <p>{{ successMessage }}</p>
+      </div>      
       <div class="check-div">
         <input
           class="checkbox"

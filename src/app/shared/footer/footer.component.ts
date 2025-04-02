@@ -26,10 +26,11 @@ export class FooterComponent implements OnInit {
   }
   
   openImprint(event: Event) {
-    event.preventDefault(); 
-    window.open(this.router.serializeUrl(this.router.createUrlTree(['/imprint'])), '_blank');
+    event.preventDefault();
+    const imprintUrl = window.location.origin + '/imprint';
+    window.open(imprintUrl, '_blank');
   }
-
+  
   scrollToContact() {
     const contactSection = document.getElementById('contact');
     if (contactSection) {

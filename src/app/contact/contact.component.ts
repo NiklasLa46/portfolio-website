@@ -27,6 +27,7 @@ interface ContactTranslations {
     minLength: string;
     invalidCharacters: string;
   };
+  success: string;
 }
 
 @Component({
@@ -38,6 +39,7 @@ interface ContactTranslations {
 })
 export class ContactComponent {
   currentLanguage: 'en' | 'de' = 'en';
+  successMessage: string = '';
 
   translations: { [key in 'en' | 'de']: ContactTranslations } = {
     en: {
@@ -60,7 +62,8 @@ export class ContactComponent {
         email: 'Please enter a valid email address.',
         minLength: 'Must be at least 3 characters long.' ,
         invalidCharacters: 'Only alphabetic characters are allowed.'
-      }
+      },
+      success: 'Your message has been sent successfully!'
     },
     de: {
       h1: 'Sag Hallo!',
@@ -82,7 +85,8 @@ export class ContactComponent {
         email: 'Bitte geben Sie eine gültige E-Mail-Adresse ein.',
         minLength: 'Muss mindestens 3 Zeichen lang sein.' ,
           invalidCharacters: 'Es sind nur Buchstaben erlaubt.'
-      }
+      },
+       success: 'Ihre Nachricht wurde erfolgreich gesendet!'
     }
   };
 
@@ -133,7 +137,7 @@ export class ContactComponent {
   mailTest = false;
 
   post = {
-    endPoint: 'https://niklas-lampe.de/sendMail.php',
+    endPoint: 'https://www.niklas-lampe.de/mailHandler.php',
     body: (payload: any) => JSON.stringify(payload),
     options: {
       headers: {
@@ -148,18 +152,24 @@ export class ContactComponent {
       this.http.post(this.post.endPoint, this.post.body(this.contactData))
         .subscribe({
           next: (response) => {
-
             ngForm.resetForm();
+            this.showSuccessMessage();
           },
           error: (error) => {
             console.error(error);
           },
-          complete: () => console.info('send post complete'),
         });
     } else if (ngForm.submitted && ngForm.form.valid && this.mailTest) {
-
       ngForm.resetForm();
+      this.showSuccessMessage();
     }
+  }
+
+  showSuccessMessage() {
+    this.successMessage = this.translations[this.currentLanguage].success;
+    setTimeout(() => {
+      this.successMessage = '';
+    }, 10000);
   }
 
   scrollToTop(): void {
