@@ -16,7 +16,7 @@ import { ImprintComponent } from './imprint/imprint.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, HeaderComponent, AtfComponent, AboutMeComponent, MySkillsComponent, ProjectsComponent, ReferencesComponent, ContactComponent, FooterComponent, PrivacyComponent, ImprintComponent, RouterOutlet],
+  imports: [CommonModule, HeaderComponent, FooterComponent, RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
