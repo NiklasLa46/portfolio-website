@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { LanguageService } from './../../language.service'; 
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-footer',
   standalone: true,
-  imports: [],
+  imports: [RouterModule],
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.scss']
 })
@@ -33,8 +33,12 @@ export class FooterComponent implements OnInit {
   
   scrollToContact() {
     const contactSection = document.getElementById('contact');
+    const headerHeight = document.querySelector('header')?.offsetHeight || 100; 
     if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
+      window.scrollTo({
+        top: contactSection.offsetTop - headerHeight,
+        behavior: 'smooth',
+      });
     }
   }
 }

@@ -5,6 +5,8 @@ import { CommonModule } from '@angular/common';
 import { LanguageService } from '../language.service';  
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
+
 
 interface ContactTranslations {
   h1: string;
@@ -33,7 +35,7 @@ interface ContactTranslations {
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [ FormsModule, CommonModule],
+  imports: [ FormsModule, CommonModule, RouterModule],
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss']
 })

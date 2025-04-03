@@ -82,12 +82,8 @@
         />
         <p>
           {{ privacyTextParts.one }}
-          <a
-            href="/privacy"
-            target="_blank"
-            rel="noopener noreferrer"
-            >{{ privacyTextParts.policy }}</a
-          >
+          <a [routerLink]="'/privacy'"  rel="noopener noreferrer">{{ privacyTextParts.policy }}</a>
+
           {{ privacyTextParts.two }}
         </p>
       </div>

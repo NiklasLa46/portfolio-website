@@ -52,7 +52,8 @@ export class ImprintComponent implements OnInit, OnDestroy {
       this.currentLanguage = lang as 'en' | 'de';
       this.updateImprintContent();
     });
-    this.updateImprintContent(); // Initialize content
+    this.updateImprintContent(); 
+    window.scrollTo(0, 0);
   }
 
   ngOnDestroy(): void {

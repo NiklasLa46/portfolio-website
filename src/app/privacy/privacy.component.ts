@@ -203,6 +203,7 @@ export class PrivacyComponent implements OnInit, OnDestroy {
       this.updatePrivacyContent();
     });
     this.updatePrivacyContent();
+    window.scrollTo(0, 0);
   }
 
   ngOnDestroy(): void {}
