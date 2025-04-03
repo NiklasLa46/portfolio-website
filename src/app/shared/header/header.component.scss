@@ -344,7 +344,7 @@ p {
   }
 }
 
-@media (max-height: 668px){
+@media (max-height: 900px){
   .gradient-div{
     height: 100px;
   }
@@ -368,5 +368,17 @@ p {
     >a{
       margin-bottom: 20px;
     }
+  }
+}
+
+@media (max-height: 601px){
+  h1 {
+    font-size: 40px;
+  }
+  .extended-links > a{
+    width: 200px;
+    height: 27.5px;
+    font-size: 39px;
+    padding: 20px 16.5px;
   }
 }

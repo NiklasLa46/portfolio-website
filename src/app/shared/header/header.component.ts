@@ -41,7 +41,6 @@ export class HeaderComponent {
   };
 
   constructor(private languageService: LanguageService, private router: Router) {
- 
     this.languageService.currentLanguage$.subscribe((lang: string) => {
       this.currentLanguage = lang as 'en' | 'de';  
     });
@@ -128,9 +127,26 @@ export class HeaderComponent {
 
   navigateToSectionInMainContent(section: string): void {
     this.router.navigate(['/'], { fragment: section });
+
     this.navigateToSection.emit(section); 
+
+    this.adjustScrollPosition(section);
   }
-  
+
+  private adjustScrollPosition(section: string): void {
+    setTimeout(() => {
+      const element = document.getElementById(section);
+      const headerHeight = document.querySelector('header')?.offsetHeight || 100; 
+
+      if (element) {
+        window.scrollTo({
+          top: element.offsetTop - headerHeight,
+          behavior: 'smooth'
+        });
+      }
+    }, 0); 
+  }
+
   scrollToTop(): void {
     window.scrollTo({
       top: 0,

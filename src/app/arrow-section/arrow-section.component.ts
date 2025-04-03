@@ -1,14 +1,16 @@
+import { Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-arrow-section',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './arrow-section.component.html',
-  styleUrl: './arrow-section.component.scss'
+  styleUrls: ['./arrow-section.component.scss']
 })
-export class ArrowSectionComponent {
+export class ArrowSectionComponent implements AfterViewInit {
+  @ViewChild('arrowSection') arrowSection!: ElementRef;
+
   images: string[] = [
     './../../assets/diagonal-arrow/dia-arrow-left1.png',
     './../../assets/diagonal-arrow/dia-arrow-left2.png',
@@ -19,11 +21,33 @@ export class ArrowSectionComponent {
   private intervalId: any;
   private animationStarted: boolean = false;  
 
+  ngAfterViewInit(): void {
+    this.setupIntersectionObserver();
+  }
+
+  setupIntersectionObserver(): void {
+    const options = {
+      root: null,
+      threshold: 0.5 
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+    
+          this.startAnimation();
+        }
+      });
+    }, options);
+
+    observer.observe(this.arrowSection.nativeElement);
+  }
+
   startAnimation(): void {
-    if (this.animationStarted) return;  
-    
-    this.animationStarted = true;  
-    
+    if (this.animationStarted) return;
+
+    this.animationStarted = true;
+
     let index = 0;
     this.isLastImage = false; 
     this.intervalId = setInterval(() => {

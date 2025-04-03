@@ -42,8 +42,12 @@ export class MySkillsComponent implements OnInit {
 
   scrollToContact() {
     const contactSection = document.getElementById('contact');
+    const headerHeight = document.querySelector('header')?.offsetHeight || 100; 
     if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
+      window.scrollTo({
+        top: contactSection.offsetTop - headerHeight,
+        behavior: 'smooth',
+      });
     }
   }
 }

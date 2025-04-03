@@ -39,7 +39,52 @@
   &:hover::after {
     opacity: 1;
   }
+
+  &.scrolled-in {
+    .project-img {
+      filter: grayscale(0);
+      transition: filter 0.5s ease;
+    }
+
+    .project-arrow {
+      opacity: 1;
+      transform: translate(10px, -50%) scale(1.4) rotate(0deg);
+      transition: transform 0.5s ease;
+    }
+
+    .project-info {
+      transform: translateY(0) !important;
+      opacity: 1;
+      transition: transform 0.5s ease, opacity 0.5s ease;
+    }
+
+    .image-container::after {
+      opacity: 1; 
+    }
+  }
+
+  .project-info {
+    &.slide-in {
+      transform: translateX(30%);
+    }
+
+    &.slide-in-reverse {
+      transform: translateX(-30%);
+    }
+
+    &.scrolled-in-info {
+      transform: translateY(0) !important;
+      opacity: 1;
+    }
+  }
 }
+
+.project-main.scrolled-in .image-container .project-arrow.reversed {
+  opacity: 1;
+  transform: translate(10px, -50%) scale(1.4) rotate(-90deg);  
+  transition: transform 0.5s ease;
+}
+
 
 .project-main.row-reverse {
   flex-direction: row-reverse;
@@ -64,7 +109,7 @@
   right: -16px;
   bottom: -16px;
   border: 4px solid rgb(0, 0, 0);
-  opacity: 0;
+  opacity: 0; 
   pointer-events: none;
   transition: all 0.3s ease;
 }
@@ -106,7 +151,7 @@
   right: 16px;
   bottom: -16px;
   border: 4px solid rgb(0, 0, 0);
-  opacity: 0;
+  opacity: 0; 
   pointer-events: none;
   transition: all 0.3s ease;
 }
@@ -219,179 +264,4 @@
   }
 }
 
-@media (max-width: 1350px) {
-  .project-main {
-    max-width: 1007.2px;
-    height: 368px;
-  }
 
-  .project-img {
-    width: 496px;
-    height: 314.4px;
-  }
-
-  .project-main.row-reverse .project-info {
-    padding-right: 70px;
-    > p {
-      max-width: 400px;
-    }
-
-    h2 {
-      font-size: 35px;
-      display: flex;
-      width: 100%;
-    }
-
-    h3 {
-      font-size: 19px;
-    }
-  }
-
-  .project-info {
-    padding-left: 70px;
-    > p {
-      max-width: 400px;
-    }
-
-    h2 {
-      font-size: 35px;
-      display: flex;
-      width: 100%;
-    }
-
-    h3 {
-      font-size: 19px;
-    }
-  }
-
-  .num-div {
-    font-size: 38px;
-  }
-
-  .btn-div {
-    max-width: 400px;
-    > a {
-      > button {
-        width: 170px;
-        max-width: 190px;
-      }
-    }
-  }
-}
-
-@media (max-width: 1050px) {
-  .project-main {
-    max-width: 496px;
-    height: auto;
-    flex-direction: column;
-  }
-
-  .num-div {
-    padding-bottom: 20px;
-    padding-top: 0;
-    position: relative;
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-  }
-
-  .project-info {
-    padding-top: 20px;
-    padding-left: 0px;
-    transform: translateY(50px) !important; 
-    opacity: 0;
-    transition: transform 0.5s ease, opacity 0.5s ease;
-  }
-
-  .project-main:hover .project-info {
-    transform: translateY(0) !important; 
-    opacity: 1;
-  }
-
-  .project-main.row-reverse .project-info {
-    padding-top: 20px;
-    padding-left: 0px;
-  }
-
-  .project-main.row-reverse .project-info {
-    padding-top: 20px;
-    padding-left: 0px;
-  }
-}
-
-@media (max-width: 660px) {
-  .project-main {
-    max-width: 332px;
-  }
-
-  .project-arrow.reversed{
-    padding-bottom: 25px;
-  }
-
-  .project-img {
-    width: 332px;
-    height: 210.4px;
-  }
-
-  .btn-div {
-    max-width: 300px;
-    > a {
-      > button {
-        width: 120px;
-        max-width: 150px;
-        height: 60px;
-        max-height: 65px;
-      }
-    }
-  }
-}
-
-@media (max-width: 470px) {
-  .project-main {
-    padding-top: 0px;
-    max-width: 222px;
-    height: auto;
-  }
-
-  .project-img {
-    width: 222px;
-    height: 140.7px;
-  }
-
-  .project-arrow {
-    width: 30px !important;
- 
-  }
-
-  .project-info {
-    max-width: 222px;
-    > h2 {
-      font-size: 30px;
-      padding-bottom: 5px;
-    }
-    > h3 {
-      font-size: 16px;
-      padding-bottom: 5px;
-    }
-  }
-
-  .num-div {
-    > p {
-      font-size: 20px;
-    }
-  }
-
-  .btn-div {
-    max-width: 222px;
-    margin-top: 10px;
-    > a {
-      > button {
-        font-size: 16px;
-        width: 80px;
-        max-width: 90px;
-        height: 40px;
-        max-height: 45px;
-      }
-    }
-  }
-}

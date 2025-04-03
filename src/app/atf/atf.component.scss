@@ -29,6 +29,7 @@
     align-items: center;
     justify-content: center;
     letter-spacing: -3.2px;
+    max-width: 1028px;
   }
 }
 
@@ -58,7 +59,8 @@
   display: flex;
   font-family: "overpass";
   width: 100%;
-  justify-content: space-around;
+  max-width: 1028px;
+  justify-content: space-between;
   align-items: center;
   position: absolute;
   bottom: 0;
@@ -103,12 +105,12 @@
     align-items: center;
   }
 
-  .subcaption-div{
-    >span{
+  .subcaption-div {
+    > span {
       width: 520px;
     }
-    >h2{
-      width:276px;
+    > h2 {
+      width: 276px;
       font-size: 39px;
     }
   }
@@ -124,19 +126,19 @@
     }
   }
 
-  .subcaption-div{
-    >span{
+  .subcaption-div {
+    > span {
       width: 390px;
     }
-    >h2{
-      width:207px;
+    > h2 {
+      width: 207px;
       font-size: 30px;
     }
   }
 }
 
 @media (max-width: 750px) {
-  .bottom-atf{
+  .bottom-atf {
     justify-content: space-between;
   }
 }
@@ -151,13 +153,13 @@
     }
   }
 
-  .subcaption-div{
+  .subcaption-div {
     padding-top: 0px;
-    >span{
+    > span {
       width: 257px;
     }
-    >h2{
-      width:136px;
+    > h2 {
+      width: 136px;
       font-size: 20px;
       padding-top: 0px;
     }
@@ -174,14 +176,13 @@
     }
   }
 
-  .subcaption-div{
+  .subcaption-div {
     height: 24px;
-    >span{
+    > span {
       width: 195px;
-      
     }
-    >h2{
-      width:95px;
+    > h2 {
+      width: 95px;
       font-size: 13.5px;
     }
   }
