@@ -22,7 +22,7 @@
         [(ngModel)]="contactData.name"
         #name="ngModel"
         minlength="3"
-        pattern="^[a-zA-Z\s]*$"
+        pattern="^(?!\s*$)[a-zA-Z\s]+$"
         required
       />
       <div
@@ -50,7 +50,7 @@
         class="error-message"
       >
         <p *ngIf="email.errors?.['required']">{{ errorMessages.required }}</p>
-        <p *ngIf="email.errors?.['email']">{{ errorMessages.email }}</p>
+        <p *ngIf="email.errors?.['pattern']">{{ errorMessages.email }}</p>
       </div>
       <textarea
         placeholder="{{ placeholders.message }}"

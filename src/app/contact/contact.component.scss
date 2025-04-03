@@ -17,15 +17,21 @@
 }
 
 .success-message {
-  color: $highlight_color;
-  font-size: 12px;
-  margin-top: 5px;
+  color: $highlight_color;  
+  font-size: 18px;          
+  font-weight: bold;         
+  background-color: rgb(255, 255, 255);  
+  padding: 15px;             
+  border-radius: 5px;       
+  margin-top: 15px;          
+
   > p {
-    padding: 0;
     margin: 0;
+    padding: 0;
     padding-bottom: 12px;
   }
 }
+
 
 h1 {
   font-family: "syne800";
@@ -291,131 +297,4 @@ textarea:-webkit-autofill:focus {
   transition: background-color 5000s ease-in-out 0s;
 }
 
-@media (max-width: 1350px) {
-  h1{
-    padding-left: 24px;
-  }
-}
-
-@media (max-width: 800px) {
-  h1 {
-    font-size: 58px;
-    padding-left: 16px;
-  }
-
-  h2 {
-    font-size: 28px;
-  }
-
-  h3 {
-    font-size: 18px;
-  }
-}
-
-@media (max-width: 700px) {
-  .gradient-div {
-    height: 200px;
-  }
-
-  .h1-div,
-  .subcaptions-div {
-    width: 482px;
-  }
-
-  input[type="text"],
-  input[type="email"],
-  textarea, .input-div {
-    width: 462.75px;
-  }
-
-  p{
-    max-width: 420px;
-  }
-}
-
-@media (max-width: 550px) {
-  .gradient-div {
-    height: 100px;
-  }
-
-  .h1-div,
-  .subcaptions-div {
-    width: 367px;
-  }
-
-  input[type="text"],
-  input[type="email"],
-  textarea, .input-div {
-    width: 347px;
-  }
-
-  p {
-    max-width: 315px;
-  }
-
-  .scroll-up-img{
-    display: none;
-  }
-
-  button{
-    margin-left: 0px;
-  }
-}
-
-@media (max-width: 450px) {
-  h1 {
-    font-size: 48px;
-    padding-left: 10px;
-  }
-
-  h2 {
-    font-size: 22px;
-  }
-
-  h3 {
-    font-size: 16px;
-  }
-
-  .h1-div,
-  .subcaptions-div,
-  input[type="text"],
-  input[type="email"],
-  textarea,.input-div {
-    width: 280px;
-  }
-
-  p{
-    max-width: 250px;
-  }
-
-  input[type="checkbox"]{
-    margin-right: 8px;
-  }
-
-  input[type="text"],
-  input[type="email"],
-  textarea {
-    padding: 10px 20px;
-  }
-
-  .scroll-up-img{
-    display: none;
-  }
-}
-
-@media (max-width: 350px){
-  input[type="text"],
-  input[type="email"],
-  textarea,.input-div {
-    width: 250px;
-  }
-
-  p{
-    max-width: 220px;
-  }
-
-  input[type="checkbox"]{
-    margin-right: 8px;
-  }
-}
 

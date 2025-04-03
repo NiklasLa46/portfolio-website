@@ -37,7 +37,7 @@ interface ContactTranslations {
   standalone: true,
   imports: [ FormsModule, CommonModule, RouterModule],
   templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.scss']
+  styleUrls: ['./contact.component.scss', './contact-respo.component.scss']
 })
 export class ContactComponent {
   currentLanguage: 'en' | 'de' = 'en';
