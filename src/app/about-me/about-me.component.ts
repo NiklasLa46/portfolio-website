@@ -60,8 +60,12 @@ export class AboutMeComponent implements OnInit, AfterViewInit  {
 
   ngAfterViewInit(): void {
     if (this.imageContainerRef) {
-      const observer = this.createIntersectionObserver();
-      observer.observe(this.imageContainerRef.nativeElement);
+      if (window.innerWidth <= 900) {
+        const observer = this.createIntersectionObserver();
+        observer.observe(this.imageContainerRef.nativeElement);
+      } else {
+        this.renderer.removeClass(this.imageContainerRef.nativeElement, 'show-border');
+      }
     }
   }
   
