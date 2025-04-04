@@ -20,18 +20,35 @@
   color: $highlight_color;  
   font-size: 18px;          
   font-weight: bold;         
-  background-color: rgb(255, 255, 255);  
+  background-color: $backround_color;  
   padding: 15px;             
   border-radius: 5px;       
-  margin-top: 15px;          
-
+  margin-top: 15px;      
+  width: 580px;
+  animation: slideInSuccess 0.7s ease-out;
+  display: flex;
   > p {
     margin: 0;
     padding: 0;
-    padding-bottom: 12px;
   }
 }
 
+@keyframes slideInSuccess {
+  0% {
+    opacity: 0;
+    transform: translateY(50px) scale(0.95);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-10px) scale(1.02);
+  }
+  80% {
+    transform: translateY(5px) scale(0.98);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
 
 h1 {
   font-family: "syne800";

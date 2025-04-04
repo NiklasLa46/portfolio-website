@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ArrowSectionComponent } from '../arrow-section/arrow-section.component';
 import { RouterModule } from '@angular/router';
 import { LanguageService } from '../language.service';
+import { AfterViewInit, ElementRef, Renderer2, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-about-me',
@@ -10,7 +11,7 @@ import { LanguageService } from '../language.service';
   templateUrl: './about-me.component.html',
   styleUrls: ['./about-me.component.scss', '../../styles.scss'],
 })
-export class AboutMeComponent implements OnInit {
+export class AboutMeComponent implements OnInit, AfterViewInit  {
   content: { header: string; paragraph: string; basedIn: string; remote: string; button: string } = {
     header: '',
     paragraph: '',
@@ -45,7 +46,9 @@ export class AboutMeComponent implements OnInit {
     },
   };
 
-  constructor(private languageService: LanguageService) {}
+  @ViewChild('imageContainer', { static: false }) imageContainerRef!: ElementRef;
+
+  constructor(private languageService: LanguageService, private renderer: Renderer2) {}
   
   ngOnInit(): void {
     this.languageService.currentLanguage$.subscribe((lang) => {
@@ -55,6 +58,30 @@ export class AboutMeComponent implements OnInit {
     });
   }
 
+  ngAfterViewInit(): void {
+    if (this.imageContainerRef) {
+      const observer = this.createIntersectionObserver();
+      observer.observe(this.imageContainerRef.nativeElement);
+    }
+  }
+  
+  private createIntersectionObserver(): IntersectionObserver {
+    return new IntersectionObserver(
+      this.onIntersection.bind(this),
+      { threshold: 0.6 }
+    );
+  }
+  
+  private onIntersection(entries: IntersectionObserverEntry[]): void {
+    entries.forEach((entry) => {
+      const el = this.imageContainerRef.nativeElement;
+      if (entry.isIntersecting) {
+        this.renderer.addClass(el, 'show-border');
+      } else {
+        this.renderer.removeClass(el, 'show-border');
+      }
+    });
+  }  
 
   scrollToContact() {
     const contactSection = document.getElementById('contact');

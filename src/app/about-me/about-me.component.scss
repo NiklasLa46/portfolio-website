@@ -114,6 +114,10 @@ h1 {
     transition: opacity 0.3s ease; 
     pointer-events: none; 
   }
+
+  .image-container.show-border::after {
+    opacity: 1;
+  }
   
   .image-container:hover::after {
     opacity: 1; 

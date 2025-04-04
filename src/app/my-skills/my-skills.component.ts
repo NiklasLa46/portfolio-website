@@ -3,6 +3,7 @@ import { ArrowSectionComponent } from '../arrow-section/arrow-section.component'
 import { RouterModule } from '@angular/router';
 import { LanguageService } from '../language.service';
 import { CommonModule } from '@angular/common';
+import { AfterViewInit, ElementRef, Renderer2, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-my-skills',
@@ -11,7 +12,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './my-skills.component.html',
   styleUrls: ['./my-skills.component.scss', './../../styles.scss']
 })
-export class MySkillsComponent implements OnInit {
+export class MySkillsComponent implements OnInit, AfterViewInit  {
   learnMoreText: string = '';
   contactMeText: string = '';
   alwaysReadyText: string = '';
@@ -29,7 +30,9 @@ export class MySkillsComponent implements OnInit {
     }
   };
 
-  constructor(private languageService: LanguageService) {}
+  @ViewChild('skillsSection', { static: false }) skillsSectionRef!: ElementRef;
+
+  constructor(private languageService: LanguageService, private renderer: Renderer2) {}
 
   ngOnInit(): void {
     this.languageService.currentLanguage$.subscribe((lang) => {
@@ -40,6 +43,49 @@ export class MySkillsComponent implements OnInit {
     });
   }
 
+  ngAfterViewInit(): void {
+    const observer = new IntersectionObserver(
+      (entries) => this.handleIntersect(entries),
+      { threshold: 0.4 }
+    );
+    
+    if (this.skillsSectionRef) {
+      observer.observe(this.skillsSectionRef.nativeElement);
+    }
+  }
+  
+  private handleIntersect(entries: IntersectionObserverEntry[]): void {
+    const isMobile = this.isMobileDevice();
+    entries.forEach(entry => {
+      this.toggleAnimation(entry, isMobile);
+    });
+  }
+  
+  private isMobileDevice(): boolean {
+    return window.innerWidth <= 768; 
+  }
+  
+  private toggleAnimation(entry: IntersectionObserverEntry, isMobile: boolean): void {
+    const skillElements = this.skillsSectionRef.nativeElement.querySelectorAll('.single-skill');
+    const learnIcon = this.skillsSectionRef.nativeElement.querySelector('.learn-icon');
+    
+    if (entry.isIntersecting && isMobile) {
+      this.addAnimation(skillElements, learnIcon);
+    } else if (!entry.isIntersecting && isMobile) {
+      this.removeAnimation(skillElements, learnIcon);
+    }
+  }
+  
+  private addAnimation(skillElements: NodeListOf<HTMLElement>, learnIcon: HTMLElement): void {
+    skillElements.forEach((el: HTMLElement) => this.renderer.addClass(el, 'animate-once'));
+    if (learnIcon) this.renderer.addClass(learnIcon, 'animate-once');
+  }
+  
+  private removeAnimation(skillElements: NodeListOf<HTMLElement>, learnIcon: HTMLElement): void {
+    skillElements.forEach((el: HTMLElement) => this.renderer.removeClass(el, 'animate-once'));
+    if (learnIcon) this.renderer.removeClass(learnIcon, 'animate-once');
+  }
+  
   scrollToContact() {
     const contactSection = document.getElementById('contact');
     const headerHeight = document.querySelector('header')?.offsetHeight || 100; 

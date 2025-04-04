@@ -135,6 +135,11 @@ p {
   animation: circular-back-and-forth 0.25s ease-in-out;
 }
 
+.animate-once .skill-icon,
+.animate-once .learn-icon {
+  animation: circular-back-and-forth 0.25s ease-in-out;
+}
+
 @keyframes circular-back-and-forth {
   0% {
     transform: translate(0, 0) scale(1);
