@@ -8,11 +8,14 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  align-items: center;
 }
 
 .header-bar{
   z-index: 1000;
   height: 100px;
+  max-width: 1440px;
+  width: 100%;
 }
 
 header > div {
@@ -192,6 +195,14 @@ p {
   font-size: 23px;
   &:hover {
     cursor: pointer;
+  }
+}
+
+.mail-link{
+  text-decoration: none;
+  cursor: pointer;
+  &:hover{
+    color: #00bc8f;
   }
 }
 

@@ -61,7 +61,7 @@
               <h1          (click)="closeHeader($event); navigateToSectionInMainContent('contact')"
               [ngClass]="{ 'active-link': activeLink === 'contact' }"
               data-link="contact">{{ translation.sayHi }}</h1>
-              <p>{{ translation.email }}</p>
+              <p><a class="mail-link" (click)="closeHeader($event); navigateToSectionInMainContent('contact')">niklas.lampe00&#64;gmail.com</a></p>
             </div>
             <div class="icons">
               <a href="https://www.linkedin.com/in/niklas-lampe-b23a32358/" target="_blank">

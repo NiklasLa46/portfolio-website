@@ -6,7 +6,7 @@ import { LanguageService } from '../language.service';
   standalone: true,
   imports: [],
   templateUrl: './atf.component.html',
-  styleUrls: ['./atf.component.scss', '../../styles.scss']
+  styleUrls: ['./atf.component.scss', '../../styles.scss'],
 })
 export class AtfComponent implements OnInit, OnDestroy {
   currentImage: string = './../../../assets/scroll-arrow/scroll-arrow0.png';
@@ -25,16 +25,20 @@ export class AtfComponent implements OnInit, OnDestroy {
   translations = {
     en: {
       role: 'Developer',
-      scrollText: 'Scroll Down'
+      scrollText: 'Scroll Down',
     },
     de: {
       role: 'Entwickler',
-      scrollText: 'Scroll nach unten'
-    }
+      scrollText: 'Scroll nach unten',
+    },
   };
 
-  role: string = '';  
-  scrollText: string = '';  
+  role: string = '';
+  scrollText: string = '';
+  animationFrameId: number | null = null;
+  private lastFrameTime = 0;
+  private frameDuration = 100;
+  private delayAfterLoop = 1000;
 
   constructor(private languageService: LanguageService) {}
 
@@ -46,26 +50,55 @@ export class AtfComponent implements OnInit, OnDestroy {
   }
 
   startAnimation(): void {
-    this.interval = setInterval(() => {
-      this.currentImage = this.images[this.currentIndex];
-      this.currentIndex = (this.currentIndex + 1) % this.images.length;
-      if (this.currentIndex === 0) {
-        setTimeout(() => {
-          this.startAnimation();
-        }, 1000);
-        clearInterval(this.interval);
-      }
-    }, 100);
+    this.lastFrameTime = 0;
+    this.animationFrameId = requestAnimationFrame(this.animateFrame.bind(this));
   }
-
+  
+  private animateFrame(timestamp: number): void {
+    if (!this.lastFrameTime) {
+      this.lastFrameTime = timestamp;
+    }
+  
+    const delta = timestamp - this.lastFrameTime;
+  
+    if (delta >= this.frameDuration) {
+      this.updateArrowFrame(timestamp);
+    }
+  
+    this.animationFrameId = requestAnimationFrame(this.animateFrame.bind(this));
+  }
+  
+  private updateArrowFrame(currentTimestamp: number): void {
+    this.currentImage = this.images[this.currentIndex];
+    this.currentIndex++;
+  
+    if (this.currentIndex >= this.images.length) {
+      this.currentIndex = 0;
+      this.lastFrameTime = currentTimestamp + this.delayAfterLoop;
+    } else {
+      this.lastFrameTime = currentTimestamp;
+    }
+  }
+  
   ngOnDestroy(): void {
-    if (this.interval) {
-      clearInterval(this.interval);
+    if (this.animationFrameId !== null) {
+      cancelAnimationFrame(this.animationFrameId);
     }
   }
 
   updateTranslations(lang: 'en' | 'de'): void {
     this.role = this.translations[lang].role;
     this.scrollText = this.translations[lang].scrollText;
+  }
+
+  scrollToContact() {
+    const contactSection = document.getElementById('contact');
+    const headerHeight = document.querySelector('header')?.offsetHeight || 100;
+    if (contactSection) {
+      window.scrollTo({
+        top: contactSection.offsetTop - headerHeight,
+        behavior: 'smooth',
+      });
+    }
   }
 }
