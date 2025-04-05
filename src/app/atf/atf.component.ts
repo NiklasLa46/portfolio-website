@@ -93,12 +93,27 @@ export class AtfComponent implements OnInit, OnDestroy {
 
   scrollToContact() {
     const contactSection = document.getElementById('contact');
-    const headerHeight = document.querySelector('header')?.offsetHeight || 100;
+    const headerHeight = document.querySelector('header')?.offsetHeight || 100; 
     if (contactSection) {
       window.scrollTo({
         top: contactSection.offsetTop - headerHeight,
         behavior: 'smooth',
       });
+      }
+      setTimeout(() => {
+        this.highlightForm();
+      }, 600); 
+    }
+
+    highlightForm(){
+      const contactSection = document.getElementById('input-div');
+      for (let i = 0; i < 2; i++) {
+        setTimeout(() => {
+          contactSection!.classList.add('contact-highlight');
+          setTimeout(() => {
+            contactSection!.classList.remove('contact-highlight');
+          }, 500); 
+        }, i * 1000); 
     }
   }
 }

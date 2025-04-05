@@ -100,6 +100,22 @@ p {
   }
 }
 
+.contact-highlight {
+  animation: highlight 1s ease-out forwards;
+}
+
+@keyframes highlight {
+  0% {
+    background-color: transparent;
+  }
+  50% {
+    background-color: #fffcf3; /* or any color you prefer */
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
 @media (max-width: 1300px) {
   .right-logos {
     margin-right: 8px;

@@ -88,13 +88,17 @@ export class AboutMeComponent implements OnInit, AfterViewInit  {
   }  
 
   scrollToContact() {
-    const contactSection = document.getElementById('contact');
+    const contactSection = document.getElementById('input-div');
     const headerHeight = document.querySelector('header')?.offsetHeight || 100; 
     if (contactSection) {
       window.scrollTo({
         top: contactSection.offsetTop - headerHeight,
         behavior: 'smooth',
       });
+      contactSection.classList.add('contact-highlight')
+      setTimeout(() => {
+        contactSection.classList.remove('contact-highlight')
+      }, 2000);
     }
   }
   

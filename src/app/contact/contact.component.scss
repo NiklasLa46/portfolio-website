@@ -17,13 +17,13 @@
 }
 
 .success-message {
-  color: $highlight_color;  
-  font-size: 18px;          
-  font-weight: bold;         
-  background-color: $backround_color;  
-  padding: 15px;             
-  border-radius: 5px;       
-  margin-top: 15px;      
+  color: $highlight_color;
+  font-size: 18px;
+  font-weight: bold;
+  background-color: $backround_color;
+  padding: 15px;
+  border-radius: 5px;
+  margin-top: 15px;
   width: 580px;
   animation: slideInSuccess 0.7s ease-out;
   display: flex;
@@ -168,10 +168,17 @@ button:disabled:hover {
 .check-div {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   margin-top: 12px;
-  margin-bottom: 12px;
+  margin-bottom: 25px;
+  > p {
+    margin: 0;
+    padding: 0;
+  }
+  > input[type="checkbox"] {
+    margin: 0;
+  }
 }
 
 a {
@@ -314,4 +321,10 @@ textarea:-webkit-autofill:focus {
   transition: background-color 5000s ease-in-out 0s;
 }
 
-
+.contact-highlight {
+  >input[type="text"],
+  input[type="email"],
+  textarea{ 
+      outline: 2px white solid;
+  }
+}

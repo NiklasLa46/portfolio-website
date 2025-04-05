@@ -39,7 +39,23 @@ export class FooterComponent implements OnInit {
         top: contactSection.offsetTop - headerHeight,
         behavior: 'smooth',
       });
+      this.highlightForm();
+
+      }
+    }
+
+    highlightForm(){
+      const contactSection = document.getElementById('input-div');
+      for (let i = 0; i < 2; i++) {
+        setTimeout(() => {
+          contactSection!.classList.add('contact-highlight');
+          setTimeout(() => {
+            contactSection!.classList.remove('contact-highlight');
+          }, 500); 
+        }, i * 1000); 
     }
   }
+  
+  
 }
 
